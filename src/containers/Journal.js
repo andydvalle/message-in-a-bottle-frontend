@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
+import JournalForm from '../components/JournalForm'
 
 class Journal extends Component {
     render(){
         return (
-            <div className="Journal">Hi from Journal</div>
+            <div className="Journal">
+                Hi from Journal
+                <JournalForm />
+            </div>
         )
     }
 
