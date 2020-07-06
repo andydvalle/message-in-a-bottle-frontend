@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 
 class MessageForm extends Component {
+    
+    state= {
+        content: "",
+        sender_user_id: "", 
+        receiver_user_id: ""
+    }
+
     render(){
         return (
             <form>

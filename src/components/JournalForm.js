@@ -4,7 +4,8 @@ class JournalForm extends Component {
 
     state = {
         title: "",
-        content: ""
+        content: "",
+        user_id: ""
     }
 
     render(){
