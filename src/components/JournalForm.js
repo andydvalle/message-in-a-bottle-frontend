@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 
 class JournalForm extends Component {
+
+    state = {
+        title: "",
+        content: ""
+    }
+
     render(){
         return (
             <form>
