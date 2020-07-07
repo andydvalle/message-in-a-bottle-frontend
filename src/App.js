@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
 import NavBar from './components/NavBar.js'
 import Dashboard from './containers/Dashboard.js'
@@ -43,7 +44,10 @@ class App extends Component {
     this.setState({ auth: updatedState })
   }
 
-
+  onLogout = () => {
+    localStorage.removeItem("token");
+    this.setState({ auth: { user: {} } });
+  }
 
   componentDidMount (){
     this.fetchJournals()
@@ -52,14 +56,20 @@ class App extends Component {
 
   render(){
   return (
-    <div className="App">
-        Hi from app
-        <NavBar />
-        <Dashboard />
-        <Inbox />
-        <Journal />
-        <Login onLogin={this.onLogin} />
-    </div>
+    <Router>
+      <div className="App">
+          Hi from app
+          <NavBar />
+          <Dashboard />
+          <Inbox />
+          <Journal />
+          <Route 
+            exact
+            path="/login"
+            render={props => <Login {...props} onLogin={this.onLogin} />}
+          />
+      </div>
+    </Router>
     );
   }
 }
