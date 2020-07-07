@@ -6,10 +6,10 @@ class Message extends Component {
     
     render(){
         
-        const {content, id} = this.props.messageData
+        const {content} = this.props.messageData
         
         return (
-            <div className="Message" messageId={id}>
+            <div className="Message">
                 <p>{content}</p>
                 <button>Delete</button>
             </div>
