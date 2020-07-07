@@ -8,9 +8,15 @@ import Journal from './containers/Journal.js'
 
 class App extends Component {
 
-  state= {
-    journals: [],
-    messages: []
+  constructor() {
+    super()
+    this.state= {
+      auth: {
+        user: {}
+      },
+      journals: [],
+      messages: []
+    }
   }
 
   fetchMessages = () => {
@@ -31,6 +37,14 @@ class App extends Component {
     }))
   }
 
+  onLogin = data => {
+    const updatedState = { ...this.state.auth, user: {id: data.id, username: data.username}};
+    localStorage.setItem("token", data.jwt);
+    this.setState({ auth: updatedState })
+  }
+
+
+
   componentDidMount (){
     this.fetchJournals()
     this.fetchMessages()
@@ -44,6 +58,7 @@ class App extends Component {
         <Dashboard />
         <Inbox />
         <Journal />
+        <Login onLogin={this.onLogin} />
     </div>
     );
   }
