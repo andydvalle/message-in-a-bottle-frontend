@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import NavBar from './components/NavBar.js'
 import Dashboard from './containers/Dashboard.js'
+// import { BroswerRouter as Router, Route } from 'react-router-dom'
+
 
 class App extends Component {
 
@@ -68,11 +70,11 @@ class App extends Component {
 
   render(){
   return (
-    <div className="App">
-        Hi from app
-        <NavBar />
-        <Dashboard onHandleMessageForm={this.submitMessageForm} onHandleJournalForm={this.submitJournalForm}/>
-    </div>
+      <div className="App">
+          Hi from app
+          <NavBar />
+          <Dashboard journals={this.state.journals} messages={this.state.messages} onHandleMessageForm={this.submitMessageForm} onHandleJournalForm={this.submitJournalForm}/>
+      </div>
     );
   }
 }

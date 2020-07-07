@@ -15,8 +15,26 @@
   border: solid;
 }
 
+.MessageForm {
+  padding: 10px;
+}
+
+.Message {
+  border: solid;
+  padding: 10px;
+}
+
 .Journal {
   border: solid;
+}
+
+.JournalForm {
+  padding: 10px;
+}
+
+.JournalEntry {
+  border: solid;
+  padding: 10px;
 }
 
 .App-logo {
