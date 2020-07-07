@@ -9,8 +9,8 @@ class Dashboard extends Component {
         return (
             <div className="Dashboard">
                 Hi from Dashboard
-                <Inbox messages={this.props.messages} onHandleMessageForm={this.props.onHandleMessageForm}/>
-                <Journal journals={this.props.journals} onHandleJournalForm={this.props.onHandleJournalForm}/>
+                <Inbox messages={this.props.messages} onHandleMessageForm={this.props.onHandleMessageForm} onHandleDeleteMessage={this.props.onHandleDeleteMessage}/>
+                <Journal journals={this.props.journals} onHandleJournalForm={this.props.onHandleJournalForm} onHandleDeleteJournal={this.props.onHandleDeleteJournal}/>
             </div>
         )
     }

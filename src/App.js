@@ -63,6 +63,27 @@ class App extends Component {
     .then(data=>this.fetchMessages())
   }
 
+  //DELETE fetch, messages
+  deleteMessage = (messageId) => {
+    const URL = `http://localhost:3000/messages/${messageId}`
+    fetch(URL, {
+      method: 'DELETE'
+    })
+    .then(resp=>resp.json())
+    .then(data=>this.fetchMessages())
+  }
+
+  //DELETE fetch, journals
+  deleteJournal = (journalId) => {
+    console.log(`deleting ${journalId}`)
+    const URL = `http://localhost:3000/journals/${journalId}`
+    fetch(URL, {
+      method: 'DELETE'
+    })
+    .then(resp=>resp.json())
+    .then(data=>this.fetchJournals())
+  }
+
   componentDidMount (){
     this.fetchJournals()
     this.fetchMessages()
@@ -73,7 +94,7 @@ class App extends Component {
       <div className="App">
           Hi from app
           <NavBar />
-          <Dashboard journals={this.state.journals} messages={this.state.messages} onHandleMessageForm={this.submitMessageForm} onHandleJournalForm={this.submitJournalForm}/>
+          <Dashboard journals={this.state.journals} messages={this.state.messages} onHandleMessageForm={this.submitMessageForm} onHandleJournalForm={this.submitJournalForm} onHandleDeleteMessage={this.deleteMessage} onHandleDeleteJournal={this.deleteJournal}/>
       </div>
     );
   }

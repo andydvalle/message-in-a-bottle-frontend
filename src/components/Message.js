@@ -4,6 +4,10 @@ import React, { Component } from 'react'
 
 class Message extends Component {
     
+    handleDeleteMessage = (e) => {
+        this.props.onHandleDeleteMessage(this.props.messageData.id)
+    }
+
     render(){
         
         const {content} = this.props.messageData
@@ -11,7 +15,7 @@ class Message extends Component {
         return (
             <div className="Message">
                 <p>{content}</p>
-                <button>Delete</button>
+                <button onClick={this.handleDeleteMessage}>Delete</button>
             </div>
         )
     }

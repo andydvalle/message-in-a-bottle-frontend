@@ -6,9 +6,13 @@ import JournalEntry from '../components/JournalEntry'
 
 class Journal extends Component {
 
+    handleEditJournal = (journalId) => {
+        console.log(`handling ${journalId}`)
+    }
+
     renderJournalEntry = () => {
         return this.props.journals.map(journalEntry => {
-            return <JournalEntry key={journalEntry.id} journalEntryData={journalEntry}/>
+            return <JournalEntry key={journalEntry.id} journalEntryData={journalEntry} onHandleDeleteJournal={this.props.onHandleDeleteJournal} onHandleEditJournal={this.handleEditJournal}/>
         })
     }
 
@@ -17,7 +21,6 @@ class Journal extends Component {
             <div className="Journal">
                 Hi from Journal
                 <JournalForm onHandleJournalForm={this.props.onHandleJournalForm}/>
-                {/* <JournalEntry /> */}
                 {this.renderJournalEntry()}
             </div>
         )
