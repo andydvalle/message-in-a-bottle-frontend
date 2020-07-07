@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MessageForm from '../components/MessageForm'
+import Message from '../components/Message'
 
 class Inbox extends Component {
     render(){
@@ -7,6 +8,7 @@ class Inbox extends Component {
             <div className="Inbox">
                 Hi from Inbox
                 <MessageForm />
+                <Message />
             </div>
         )
     }
