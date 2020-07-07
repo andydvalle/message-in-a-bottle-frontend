@@ -28,7 +28,7 @@ class JournalForm extends Component {
 
     render(){
         return (
-            <form onSubmit={this.handleJournalForm}>
+            <form className="JournalForm" onSubmit={this.handleJournalForm}>
                 <label>Title</label>
                 <input type="text" name="title" placeholder="Write your title here" value={this.state.title} onChange={this.handleChange}/>
                 <label>Journal Entry</label>

@@ -28,7 +28,7 @@ class MessageForm extends Component {
 
     render(){
         return (
-            <form onSubmit={this.handleMessageForm}>
+            <form className="MessageForm" onSubmit={this.handleMessageForm}>
                 <label>Message content</label>
                 <textarea type="text" name="content" placeholder="Write your message here" value={this.state.content} onChange={this.handleChange} />
                 <label>sender_user_id</label>

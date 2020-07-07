@@ -4,8 +4,16 @@ import React, { Component } from 'react'
 
 class JournalEntry extends Component {
     render(){
+
+        const {content, title} = this.props.journalEntryData
+
         return (
-            <div className="JournalEntry">This is where past journal entries will live</div>
+            <div className="JournalEntry">
+                <h3>{title}</h3>
+                <p>{content}</p>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
         )
     }
 
