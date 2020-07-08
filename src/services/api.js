@@ -10,7 +10,7 @@ const headers = () => {
 };
 
 const fetchMessages = () => {
-    const URL = "http://localhost:3000/messages"
+    const URL = "http://localhost:3000/api/v1/messages"
     fetch(URL)
     .then(resp=>resp.json())
     .then(data=>this.setState({
@@ -19,7 +19,7 @@ const fetchMessages = () => {
 }
 
 const fetchJournals = () => {
-    const URL = "http://localhost:3000/journals"
+    const URL = "http://localhost:3000/api/v1/journals"
     fetch(URL)
     .then(resp=>resp.json())
     .then(data=>this.setState({
@@ -27,8 +27,16 @@ const fetchJournals = () => {
     }))
 }
 
+const signUp = data => {
+    return fetch('http://localhost:3000/api/v1/users', {
+        method: "POST",
+        headers: headers(),
+        body: JSON.stringify(data)
+    }).then(resp => resp.json());
+}
+
 const login = data => {
-    return fetch('http://localhost:3000/auth', {
+    return fetch('http://localhost:3000/api/v1/auth', {
         method: "POST",
         headers: headers(),
         body: JSON.stringify(data)
@@ -36,9 +44,10 @@ const login = data => {
 }
 
 const getCurrentUser = () => {
-    return fetch('http://localhost:3000/current_user', {
+    return fetch('http://localhost:3000/api/v1/current_user', {
         headers: headers()
     }).then(resp => {
+        console.log(resp)
         return resp.json()
     })
 }
@@ -46,7 +55,8 @@ const getCurrentUser = () => {
 export const api = {
     auth: {
         login,
-        getCurrentUser
+        getCurrentUser,
+        signUp
     },
     messages: {
         fetchMessages

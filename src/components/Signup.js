@@ -2,7 +2,7 @@ import React from 'react'
 import { api } from '../services/api'
 import { Link } from 'react-router-dom'
 
-class Login extends React.Component {
+class Signup extends React.Component {
 
     constructor() {
         super();
@@ -22,8 +22,9 @@ class Login extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        api.auth.login(this.state.fields)
+        api.auth.signUp(this.state.fields)
         .then(resp => {
+            console.log(resp)
             if (!resp.error) {
                 this.props.onLogin(resp);
                 this.props.history.push('/');
@@ -60,14 +61,13 @@ class Login extends React.Component {
                             />
                         </div>
                         <button type="submit">
-                            Login
+                            Sign up
                         </button>
                     </form>
-                    <Link to="/signup">Sign up</Link>
                 </div>
             </div>
         )
     }
 }
 
-export default Login;
+export default Signup;

@@ -2,12 +2,13 @@ import React, { Fragment } from "react";
 import { api } from "../services/api";
 import { Redirect } from "react-router-dom";
 
-const AuthHOC = WrappedComponent => {
+const AuthHOC = (WrappedComponent) => {
     return class AuthHOC extends React.Component {
-
+        
         state = {
             authorized: false
         }
+        
         
         checkLogin = () => {
             if (!localStorage.getItem("token")) {
