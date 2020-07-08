@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { api } from '../services/api'
 
 //This is where all the received messages will live
 
@@ -6,7 +7,7 @@ class Message extends Component {
     
     //sends message id to App.js deleteMessage
     handleDeleteMessage = (e) => {
-        this.props.onHandleDeleteMessage(this.props.messageData.id)
+        api.messages.deleteMessage(this.props.messageData.id)
     }
 
     render(){

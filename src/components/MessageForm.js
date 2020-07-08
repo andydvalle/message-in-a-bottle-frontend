@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { api } from '../services/api'
 
 class MessageForm extends Component {
     
@@ -18,7 +19,7 @@ class MessageForm extends Component {
     //sends data to App.js to submitMessageForm(), then sets state back to ''
     handlePostMessage = (e) => {
         e.preventDefault()
-        this.props.onHandlePostMessage(this.state)
+        api.messages.postMessage(this.state)
         this.setState({
             content: '',
             sender_user_id: '',
