@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom'
-import './App.css';
+import { Route } from 'react-router-dom'
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 import NavBar from './components/NavBar.js'
 import Dashboard from './containers/Dashboard.js'
 import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import { api } from './services/api';
-import Mailbox from './containers/Mailbox'
-import Journal from './containers/Journal'
+
 
 class App extends Component {
 
@@ -51,7 +51,6 @@ class App extends Component {
   render() {
   return (
       <div className="App">
-          Hi from app
           <NavBar 
             currentUser={this.state.auth.user}
             handleLogout={this.onLogout}
