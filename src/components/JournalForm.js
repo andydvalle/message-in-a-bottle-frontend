@@ -1,23 +1,43 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
+import { api } from '../services/api'
 
 class JournalForm extends Component {
-  constructor(props) {
-    super();
-    this.state = {
-      id: "",
-      title: "",
-      content: "",
-      user_id: "",
-      isEdit: false,
-    };
-  }
 
-  //sets state to current values of form inputs
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
+    constructor(props){
+        super()
+        this.state = {
+            id: "",
+            title: "",
+            content: "",
+            user_id: "",
+            isEdit: false
+        }
+    }
+
+    //sets state to current values of form inputs
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    //if isEdit===true sends data to App.js editJournal, else to App.js postJournal
+    handleJournalForm = (e) => {
+        e.preventDefault()
+        if(this.state.isEdit){
+            api.journals.editJournal(this.state)
+            this.props.resetJournalState()
+        } else {
+            api.journals.postJournal(this.state)
+            this.setState({
+                id: "",
+                title: "",
+                content: "",
+                user_id: "",
+                isEdit: false
+            })
+        }
+    }
 
   //if isEdit===true sends data to App.js editJournal, else to App.js postJournal
   handleJournalForm = (e) => {

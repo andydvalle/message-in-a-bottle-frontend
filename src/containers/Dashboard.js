@@ -1,20 +1,39 @@
-import React, { Component } from 'react'
-import Inbox from '../containers/Inbox.js'
-import Journal from '../containers/Journal.js'
+import React, { Component } from "react";
+import AuthHOC from "../HOCs/AuthHOC";
+import { Route, Switch } from "react-router-dom";
+import Mailbox from "./Mailbox";
+import Journal from "../containers/Journal.js";
+import { api } from "../services/api";
 
 //container that holds inbox and journal
 
 class Dashboard extends Component {
-    render(){
-        return (
-            <div className="Dashboard">
-                Hi from Dashboard
-                <Inbox messages={this.props.messages} onHandlePostMessage={this.props.onHandlePostMessage} onHandleDeleteMessage={this.props.onHandleDeleteMessage}/>
-                <Journal journals={this.props.journals} onHandlePostJournal={this.props.onHandlePostJournal} onHandleDeleteJournal={this.props.onHandleDeleteJournal} onHandleEditJournal={this.props.onHandleEditJournal}/>
-            </div>
-        )
-    }
+  state = {
+    journals: [],
+  };
 
+  componentDidMount() {
+    api.journals.fetchJournals();
+  }
+
+  render() {
+    return (
+        <div className="Dashboard">
+          Hi from Dashboard
+          <Switch>
+            <Route
+              path="/mailbox"
+              render={(props) => <Mailbox {...props} />}
+            />
+            <Route
+              path="/journal"
+              render={(props) => <Journal {...props} journals={this.state.journals} />
+              }
+            />
+          </Switch>
+        </div>
+    );
+  }
 }
 
-export default Dashboard
+export default AuthHOC(Dashboard);
