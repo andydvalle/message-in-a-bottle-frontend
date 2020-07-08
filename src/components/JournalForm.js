@@ -29,6 +29,7 @@ class JournalForm extends Component {
             this.props.resetJournalState()
         } else {
             api.journals.postJournal(this.state)
+            .then(data=>this.props.addJournal(data))
             this.setState({
                 id: "",
                 title: "",

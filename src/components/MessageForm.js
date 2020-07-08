@@ -19,7 +19,7 @@ class MessageForm extends Component {
     //sends data to App.js to submitMessageForm(), then sets state back to ''
     handlePostMessage = (e) => {
         e.preventDefault()
-        api.messages.postMessage(this.state)
+        api.messages.postMessage(this.state).then(data=>this.props.addMessage(data))
         this.setState({
             content: '',
             sender_user_id: '',
