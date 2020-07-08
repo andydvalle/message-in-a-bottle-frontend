@@ -12,16 +12,19 @@ import Journal from '../containers/Journal.js'
 class Dashboard extends Component {
     render(){
         return (
-            <div className="Dashboard">Hi from Dashboard
-                <Switch>
-                    <Route path="/messages" component={Messages}/>
-                    <Route path="/journal" component={Journal}/>
-                </Switch>
-                
-            <div className="Dashboard">
-                Hi from Dashboard
-                <Inbox messages={this.props.messages} onHandlePostMessage={this.props.onHandlePostMessage} onHandleDeleteMessage={this.props.onHandleDeleteMessage}/>
-                <Journal journals={this.props.journals} onHandlePostJournal={this.props.onHandlePostJournal} onHandleDeleteJournal={this.props.onHandleDeleteJournal} onHandleEditJournal={this.props.onHandleEditJournal}/>
+            <div>
+                <div className="Dashboard">Hi from Dashboard
+                    <Switch>
+                        <Route path="/messages" component={Messages}/>
+                        <Route path="/journal" component={Journal}/>
+                    </Switch>
+                </div>
+
+                <div className="Dashboard">
+                    Hi from Dashboard
+                    <Inbox messages={this.props.messages} onHandlePostMessage={this.props.onHandlePostMessage} onHandleDeleteMessage={this.props.onHandleDeleteMessage}/>
+                    <Journal journals={this.props.journals} onHandlePostJournal={this.props.onHandlePostJournal} onHandleDeleteJournal={this.props.onHandleDeleteJournal} onHandleEditJournal={this.props.onHandleEditJournal}/>
+                </div>
             </div>
         )
     }

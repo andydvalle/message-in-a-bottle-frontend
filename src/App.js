@@ -113,14 +113,14 @@ class App extends Component {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json'
-      },
+        },
       body: JSON.stringify(data)
-    })
+      })
     .then(resp=>resp.json())
     .then(data=>this.fetchJournals())
   }
 
-  componentDidMount (){
+  componentDidMount() {
     const token = localStorage.getItem("token")
     console.log(token)
     if (token) {
@@ -131,7 +131,7 @@ class App extends Component {
     }
   }
 
-  render(){
+  render() {
   return (
       <div className="App">
           Hi from app
