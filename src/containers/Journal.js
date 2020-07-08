@@ -40,7 +40,7 @@ class Journal extends Component {
     //renders all journal entry components
     renderJournalEntry = () => {
         return this.props.journals.map(journalEntry => {
-            return <JournalEntry key={journalEntry.id} journalEntryData={journalEntry} onEditJournalEntry={this.editJournalEntry}/>
+            return <JournalEntry key={journalEntry.id} journalEntryData={journalEntry} onEditJournalEntry={this.editJournalEntry} removeJournal={this.props.removeJournal}/>
         })
     }
 
@@ -48,7 +48,7 @@ class Journal extends Component {
         return (
             <div className="Journal">
                 Hi from Journal
-                <JournalForm resetJournalState={this.resetJournalState}updateFormData={this.state} addJournal={this.props.addJournal}/>
+                <JournalForm resetJournalState={this.resetJournalState} updateFormData={this.state} addJournal={this.props.addJournal} updateJournal={this.props.updateJournal}/>
                 {this.renderJournalEntry()}
             </div>
         )

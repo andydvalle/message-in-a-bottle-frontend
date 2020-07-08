@@ -8,7 +8,7 @@ class Message extends Component {
     //sends message id to App.js deleteMessage
     handleDeleteMessage = (e) => {
         api.messages.deleteMessage(this.props.messageData.id)
-        .then(data=>this.props.deleteMessage(this.props.messageData.id))
+        .then(data=>this.props.removeMessage(this.props.messageData.id))
     }
 
     render(){

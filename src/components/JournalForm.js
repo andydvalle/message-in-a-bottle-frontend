@@ -26,6 +26,7 @@ class JournalForm extends Component {
         e.preventDefault()
         if(this.state.isEdit){
             api.journals.editJournal(this.state)
+            .then(data=>this.props.updateJournal(data))
             this.props.resetJournalState()
         } else {
             api.journals.postJournal(this.state)
@@ -39,24 +40,6 @@ class JournalForm extends Component {
             })
         }
     }
-
-  //if isEdit===true sends data to App.js editJournal, else to App.js postJournal
-  handleJournalForm = (e) => {
-    e.preventDefault();
-    if (this.state.isEdit) {
-      this.props.onHandleEditJournal(this.state);
-      this.props.resetJournalState();
-    } else {
-      this.props.onHandlePostJournal(this.state);
-      this.setState({
-        id: "",
-        title: "",
-        content: "",
-        user_id: "",
-        isEdit: false,
-      });
-    }
-  };
 
   // udpates state and form values
   componentWillReceiveProps(nextProps) {

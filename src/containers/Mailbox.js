@@ -24,7 +24,7 @@ class Mailbox extends Component {
         })
     }
 
-    deleteMessage = (messageId) => {
+    removeMessage = (messageId) => {
         const updatedMessages = this.state.messages.filter(message=> message.id !== messageId)
         this.setState({
             messages: updatedMessages
@@ -39,7 +39,7 @@ class Mailbox extends Component {
                     exact 
                     path='/mailbox/inbox' 
                     render={props => 
-                    <Inbox {...props} deleteMessage={this.deleteMessage}/>} />
+                    <Inbox {...props} removeMessage={this.removeMessage}/>} />
                 <Route 
                     path='/message-form' 
                     render={props => 

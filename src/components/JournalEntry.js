@@ -8,6 +8,7 @@ class JournalEntry extends Component {
     //sends journal entry id to App.js deleteJournal
     handleDeleteButton = () => {
         api.journals.deleteJournal(this.props.journalEntryData.id)
+        .then(this.props.removeJournal(this.props.journalEntryData.id))
     }
 
     //sends journal entry data to Journal.js editJournalEntry

@@ -7,7 +7,7 @@ class Inbox extends Component {
 
     renderMessages = () => {
         return this.props.messages.map(message=>{
-            return <Message key={message.id} messageData={message} onHandleDeleteMessage={this.props.onHandleDeleteMessage} deleteMessage={this.props.deleteMessage}/>
+            return <Message key={message.id} messageData={message} removeMessage={this.props.removeMessage}/>
         })
     }
 
