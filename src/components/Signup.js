@@ -1,6 +1,5 @@
 import React from 'react'
 import { api } from '../services/api'
-import { Link } from 'react-router-dom'
 
 class Signup extends React.Component {
 

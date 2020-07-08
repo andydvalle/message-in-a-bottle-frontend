@@ -1,34 +1,39 @@
-import React, { Component } from 'react'
-import AuthHOC from '../HOCs/AuthHOC'
-import { Route, Switch } from 'react-router-dom'
-import Messages from './Messages'
-import Journal from './Journal'
-
-import Inbox from '../containers/Inbox.js'
-import Journal from '../containers/Journal.js'
+import React, { Component } from "react";
+import AuthHOC from "../HOCs/AuthHOC";
+import { Route, Switch } from "react-router-dom";
+import Mailbox from "./Mailbox";
+import Journal from "../containers/Journal.js";
+import { api } from "../services/api";
 
 //container that holds inbox and journal
 
 class Dashboard extends Component {
-    render(){
-        return (
-            <div>
-                <div className="Dashboard">Hi from Dashboard
-                    <Switch>
-                        <Route path="/messages" component={Messages}/>
-                        <Route path="/journal" component={Journal}/>
-                    </Switch>
-                </div>
+  state = {
+    journals: [],
+  };
 
-                <div className="Dashboard">
-                    Hi from Dashboard
-                    <Inbox messages={this.props.messages} onHandlePostMessage={this.props.onHandlePostMessage} onHandleDeleteMessage={this.props.onHandleDeleteMessage}/>
-                    <Journal journals={this.props.journals} onHandlePostJournal={this.props.onHandlePostJournal} onHandleDeleteJournal={this.props.onHandleDeleteJournal} onHandleEditJournal={this.props.onHandleEditJournal}/>
-                </div>
-            </div>
-        )
-    }
+  componentDidMount() {
+    api.journals.fetchJournals();
+  }
 
+  render() {
+    return (
+        <div className="Dashboard">
+          Hi from Dashboard
+          <Switch>
+            <Route
+              path="/mailbox"
+              render={(props) => <Mailbox {...props} />}
+            />
+            <Route
+              path="/journal"
+              render={(props) => <Journal {...props} journals={this.state.journals} />
+              }
+            />
+          </Switch>
+        </div>
+    );
+  }
 }
 
-export default AuthHOC(Dashboard)
+export default AuthHOC(Dashboard);

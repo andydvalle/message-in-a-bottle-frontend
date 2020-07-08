@@ -12,7 +12,7 @@ class Journal extends Component {
         user_id: "",
         isEdit: false,
         id: ""
-    }
+    } 
 
     //sets state equal to Journal Entry Data once edit button is clicked. Sends updateFormData prop to Journal Form
     editJournalEntry = (journalData) => {
@@ -40,7 +40,7 @@ class Journal extends Component {
     //renders all journal entry components
     renderJournalEntry = () => {
         return this.props.journals.map(journalEntry => {
-            return <JournalEntry key={journalEntry.id} journalEntryData={journalEntry} onHandleDeleteJournal={this.props.onHandleDeleteJournal} onEditJournalEntry={this.editJournalEntry}/>
+            return <JournalEntry key={journalEntry.id} journalEntryData={journalEntry} onEditJournalEntry={this.editJournalEntry}/>
         })
     }
 
@@ -48,7 +48,7 @@ class Journal extends Component {
         return (
             <div className="Journal">
                 Hi from Journal
-                <JournalForm resetJournalState={this.resetJournalState}updateFormData={this.state} onHandlePostJournal={this.props.onHandlePostJournal} onHandleEditJournal={this.props.onHandleEditJournal}/>
+                <JournalForm resetJournalState={this.resetJournalState}updateFormData={this.state} />
                 {this.renderJournalEntry()}
             </div>
         )

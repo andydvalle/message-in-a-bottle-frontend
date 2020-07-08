@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { api } from '../services/api'
 
 class JournalForm extends Component {
 
@@ -24,10 +25,10 @@ class JournalForm extends Component {
     handleJournalForm = (e) => {
         e.preventDefault()
         if(this.state.isEdit){
-            this.props.onHandleEditJournal(this.state)
+            api.journals.editJournal(this.state)
             this.props.resetJournalState()
         } else {
-            this.props.onHandlePostJournal(this.state)
+            api.journals.postJournal(this.state)
             this.setState({
                 id: "",
                 title: "",

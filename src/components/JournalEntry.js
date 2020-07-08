@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { api } from '../services/api'
 
 //this is where all the users journal entries will live
 
@@ -6,7 +7,7 @@ class JournalEntry extends Component {
     
     //sends journal entry id to App.js deleteJournal
     handleDeleteButton = () => {
-        this.props.onHandleDeleteJournal(this.props.journalEntryData.id)
+        api.journals.deleteJournal(this.props.journalEntryData.id)
     }
 
     //sends journal entry data to Journal.js editJournalEntry
