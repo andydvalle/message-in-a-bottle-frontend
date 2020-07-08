@@ -16,9 +16,9 @@ class MessageForm extends Component {
     }
 
     //sends data to App.js to submitMessageForm(), then sets state back to ''
-    handleMessageForm = (e) => {
+    handlePostMessage = (e) => {
         e.preventDefault()
-        this.props.onHandleMessageForm(this.state)
+        this.props.onHandlePostMessage(this.state)
         this.setState({
             content: '',
             sender_user_id: '',
@@ -28,7 +28,7 @@ class MessageForm extends Component {
 
     render(){
         return (
-            <form className="MessageForm" onSubmit={this.handleMessageForm}>
+            <form className="MessageForm" onSubmit={this.handlePostMessage}>
                 <label>Message content</label>
                 <textarea type="text" name="content" placeholder="Write your message here" value={this.state.content} onChange={this.handleChange} />
                 <label>sender_user_id</label>

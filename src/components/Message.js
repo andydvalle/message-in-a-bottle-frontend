@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 
 class Message extends Component {
     
+    //sends message id to App.js deleteMessage
     handleDeleteMessage = (e) => {
         this.props.onHandleDeleteMessage(this.props.messageData.id)
     }

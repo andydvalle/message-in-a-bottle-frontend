@@ -2,10 +2,15 @@ import React, { Component } from 'react'
 
 class JournalForm extends Component {
 
-    state = {
-        title: "",
-        content: "",
-        user_id: ""
+    constructor(props){
+        super()
+        this.state = {
+            id: "",
+            title: "",
+            content: "",
+            user_id: "",
+            isEdit: false
+        }
     }
 
     //sets state to current values of form inputs
@@ -15,26 +20,55 @@ class JournalForm extends Component {
         })
     }
 
-    //sends data to App.js to submitJournalForm(), then sets state back to ''
+    //if isEdit===true sends data to App.js editJournal, else to App.js postJournal
     handleJournalForm = (e) => {
         e.preventDefault()
-        this.props.onHandleJournalForm(this.state)
-        this.setState({
-            title: "",
-            content: "",
-            user_id: ""
-        })
+        if(this.state.isEdit){
+            this.props.onHandleEditJournal(this.state)
+            this.props.resetJournalState()
+        } else {
+            this.props.onHandlePostJournal(this.state)
+            this.setState({
+                id: "",
+                title: "",
+                content: "",
+                user_id: "",
+                isEdit: false
+            })
+        }
+    }
+
+    // udpates state and form values 
+    componentWillReceiveProps(nextProps){
+        if (nextProps.updateFormData !== this.state) {
+            this.setState({
+                id: nextProps.updateFormData.id,
+                title: nextProps.updateFormData.title,
+                content: nextProps.updateFormData.content,
+                user_id: nextProps.updateFormData.user_id,
+                isEdit: nextProps.updateFormData.isEdit
+            })
+        }
     }
 
     render(){
         return (
             <form className="JournalForm" onSubmit={this.handleJournalForm}>
                 <label>Title</label>
-                <input type="text" name="title" placeholder="Write your title here" value={this.state.title} onChange={this.handleChange}/>
+                <input type="text" name="title" placeholder="Write your title here" 
+                    value={this.state.title}
+                    onChange={this.handleChange}
+                />
                 <label>Journal Entry</label>
-                <textarea type="text" name="content" placeholder="Write your journal entry here" value={this.state.content} onChange={this.handleChange}/>
+                <textarea type="text" name="content" placeholder="Write your journal entry here" 
+                    value={this.state.content}
+                    onChange={this.handleChange}
+                />
                 <label>user_id</label>
-                <input type="text" name="user_id" placeholder="this should be hidden" value={this.state.user_id} onChange={this.handleChange}/>
+                <input type="text" name="user_id" placeholder="this should be hidden" 
+                    value={this.state.user_id} 
+                    onChange={this.handleChange}
+                />
                 <button type="submit">Submit Journal</button>
             </form>
         )

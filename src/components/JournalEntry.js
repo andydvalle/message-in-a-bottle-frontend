@@ -4,12 +4,14 @@ import React, { Component } from 'react'
 
 class JournalEntry extends Component {
     
-    handleDeleteJournal = () => {
+    //sends journal entry id to App.js deleteJournal
+    handleDeleteButton = () => {
         this.props.onHandleDeleteJournal(this.props.journalEntryData.id)
     }
 
-    handleEditJournal = () => {
-        this.props.onHandleEditJournal(this.props.journalEntryData.id)
+    //sends journal entry data to Journal.js editJournalEntry
+    handleEditButton = () => {
+        this.props.onEditJournalEntry(this.props.journalEntryData)
     }
     
     render(){
@@ -20,8 +22,8 @@ class JournalEntry extends Component {
             <div className="JournalEntry">
                 <h3>{title}</h3>
                 <p>{content}</p>
-                <button onClick={this.handleEditJournal}>Edit</button>
-                <button onClick={this.handleDeleteJournal}>Delete</button>
+                <button onClick={this.handleEditButton}>Edit</button>
+                <button onClick={this.handleDeleteButton}>Delete</button>
             </div>
         )
     }

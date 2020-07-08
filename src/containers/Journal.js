@@ -6,13 +6,41 @@ import JournalEntry from '../components/JournalEntry'
 
 class Journal extends Component {
 
-    handleEditJournal = (journalId) => {
-        console.log(`handling ${journalId}`)
+    state = {
+        title: "",
+        content: "",
+        user_id: "",
+        isEdit: false,
+        id: ""
     }
 
+    //sets state equal to Journal Entry Data once edit button is clicked. Sends updateFormData prop to Journal Form
+    editJournalEntry = (journalData) => {
+        this.setState({
+            id: journalData.id,
+            title: journalData.title,
+            content: journalData.content,
+            user_id: journalData.user_id,
+            isEdit: true 
+        })
+    }
+
+    //resets state after JournalForm.js submits an edited form.
+    //not too happy about this, sorta 'hacky'
+    resetJournalState = () => {
+        this.setState({
+            id: "",
+            title: "",
+            content: "",
+            user_id: "",
+            isEdit: false
+        })
+    }
+
+    //renders all journal entry components
     renderJournalEntry = () => {
         return this.props.journals.map(journalEntry => {
-            return <JournalEntry key={journalEntry.id} journalEntryData={journalEntry} onHandleDeleteJournal={this.props.onHandleDeleteJournal} onHandleEditJournal={this.handleEditJournal}/>
+            return <JournalEntry key={journalEntry.id} journalEntryData={journalEntry} onHandleDeleteJournal={this.props.onHandleDeleteJournal} onEditJournalEntry={this.editJournalEntry}/>
         })
     }
 
@@ -20,7 +48,7 @@ class Journal extends Component {
         return (
             <div className="Journal">
                 Hi from Journal
-                <JournalForm onHandleJournalForm={this.props.onHandleJournalForm}/>
+                <JournalForm resetJournalState={this.resetJournalState}updateFormData={this.state} onHandlePostJournal={this.props.onHandlePostJournal} onHandleEditJournal={this.props.onHandleEditJournal}/>
                 {this.renderJournalEntry()}
             </div>
         )

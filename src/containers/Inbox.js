@@ -16,8 +16,7 @@ class Inbox extends Component {
         return (
             <div className="Inbox">
                 Hi from Inbox
-                <MessageForm onHandleMessageForm={this.props.onHandleMessageForm}/>
-                {/* <Message messages={this.props.messages}/> */}
+                <MessageForm onHandlePostMessage={this.props.onHandlePostMessage}/>
                 {this.renderMessages()}
             </div>
         )
