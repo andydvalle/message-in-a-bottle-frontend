@@ -8,6 +8,7 @@ import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import { api } from './services/api';
 
+
 class App extends Component {
 
   constructor() {
@@ -54,21 +55,22 @@ class App extends Component {
             currentUser={this.state.auth.user}
             handleLogout={this.onLogout}
             />
-          <Route
-            exact
-            path="/"
-            render={props => <Dashboard {...props} />}
+          {/* <Switch> */}
+            <Route 
+              exact
+              path="/login"
+              render={props => <Login {...props} onLogin={this.onLogin} />}
             />
-          <Route 
-            exact
-            path="/login"
-            render={props => <Login {...props} onLogin={this.onLogin} />}
-          />
-          <Route
-            exact
-            path="/signup"
-            render={props => <Signup {...props} onLogin={this.onLogin} />}
-          />
+            <Route
+              exact
+              path="/signup"
+              render={props => <Signup {...props} onLogin={this.onLogin} />}
+            />
+            <Route
+              path="/dashboard"
+              render={props => <Dashboard {...props} />}
+              />
+          {/* </Switch> */}
       </div>
     );
   }

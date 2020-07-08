@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch, NavLink } from 'react-router-dom'
 import { api } from '../services/api'
 import MessageForm from '../components/MessageForm'
 import Inbox from './Inbox'
+// import AuthHOC from '../HOCs/AuthHOC'
 
 class Mailbox extends Component {
 
@@ -35,16 +36,21 @@ class Mailbox extends Component {
         return (
             <div className="Mailbox">
                 Hi from Mailbox
-                <Route 
-                    exact 
-                    path='/mailbox/inbox' 
-                    render={props => 
-                    <Inbox {...props} removeMessage={this.removeMessage}/>} />
-                <Route 
-                    path='/message-form' 
-                    render={props => 
-                    <MessageForm {...props} addMessage={this.addMessage}/>}
-                />
+                <NavLink to="/dashboard/mailbox/inbox">Inbox</NavLink>
+                <NavLink to="/dashboard/mailbox/message-form">New Message</NavLink>
+                <Switch>
+                    <Route 
+                        exact 
+                        path='/dashboard/mailbox/inbox' 
+                        render={props => 
+                        <Inbox {...props} removeMessage={this.removeMessage} messages={this.state.messages}/> }
+                        />
+                    <Route 
+                        path='/dashboard/mailbox/message-form' 
+                        render={props => 
+                        <MessageForm {...props} addMessage={this.addMessage}/>}
+                    />
+                </Switch>
             </div>
         )
     }
