@@ -4,6 +4,10 @@ import { Route, Switch } from 'react-router-dom'
 import Messages from './Messages'
 import Journal from './Journal'
 
+import Inbox from '../containers/Inbox.js'
+import Journal from '../containers/Journal.js'
+
+//container that holds inbox and journal
 
 class Dashboard extends Component {
     render(){
@@ -13,6 +17,11 @@ class Dashboard extends Component {
                     <Route path="/messages" component={Messages}/>
                     <Route path="/journal" component={Journal}/>
                 </Switch>
+                
+            <div className="Dashboard">
+                Hi from Dashboard
+                <Inbox messages={this.props.messages} onHandlePostMessage={this.props.onHandlePostMessage} onHandleDeleteMessage={this.props.onHandleDeleteMessage}/>
+                <Journal journals={this.props.journals} onHandlePostJournal={this.props.onHandlePostJournal} onHandleDeleteJournal={this.props.onHandleDeleteJournal} onHandleEditJournal={this.props.onHandleEditJournal}/>
             </div>
         )
     }
