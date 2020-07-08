@@ -31,7 +31,7 @@ class Login extends React.Component {
                 // calls login function from App.js if no error from fetch
                 this.props.onLogin(resp);
                 // redirects to home page, dashboard
-                this.props.history.push('/');
+                this.props.history.push('/dashboard');
             } else {
                 this.setState( { error: true })
             }

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import NavBar from './components/NavBar.js'
 import Dashboard from './containers/Dashboard.js'
 import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import { api } from './services/api';
+import Mailbox from './containers/Mailbox'
+import Journal from './containers/Journal'
 
 class App extends Component {
 
@@ -54,21 +56,22 @@ class App extends Component {
             currentUser={this.state.auth.user}
             handleLogout={this.onLogout}
             />
-          <Route
-            exact
-            path="/"
-            render={props => <Dashboard {...props} />}
+          {/* <Switch> */}
+            <Route 
+              exact
+              path="/login"
+              render={props => <Login {...props} onLogin={this.onLogin} />}
             />
-          <Route 
-            exact
-            path="/login"
-            render={props => <Login {...props} onLogin={this.onLogin} />}
-          />
-          <Route
-            exact
-            path="/signup"
-            render={props => <Signup {...props} onLogin={this.onLogin} />}
-          />
+            <Route
+              exact
+              path="/signup"
+              render={props => <Signup {...props} onLogin={this.onLogin} />}
+            />
+            <Route
+              path="/dashboard"
+              render={props => <Dashboard {...props} />}
+              />
+          {/* </Switch> */}
       </div>
     );
   }
