@@ -15,17 +15,22 @@ class Login extends React.Component {
         }
     }
 
+    // changes state with the input received in the login form
     handleChange = e => {
         const newFields = {...this.state.fields, [e.target.name]: e.target.value };
         this.setState({fields: newFields});
     }
 
+    // submit event handler
     handleSubmit = e => {
         e.preventDefault()
+        // fetch request to login
         api.auth.login(this.state.fields)
         .then(resp => {
             if (!resp.error) {
+                // calls login function from App.js if no error from fetch
                 this.props.onLogin(resp);
+                // redirects to home page, dashboard
                 this.props.history.push('/');
             } else {
                 this.setState( { error: true })

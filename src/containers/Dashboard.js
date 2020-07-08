@@ -13,24 +13,32 @@ class Dashboard extends Component {
   };
 
   componentDidMount() {
-    api.journals.fetchJournals();
+    api.journals.fetchJournals()
+    .then(data=>this.setState({
+        journals: data
+      }))
+  }
+
+  addJournal = (data) => {
+      const newJournals = [...this.state.journals, data]
+      this.setState({
+          journals: newJournals
+      })
   }
 
   render() {
     return (
         <div className="Dashboard">
           Hi from Dashboard
-          <Switch>
             <Route
               path="/mailbox"
               render={(props) => <Mailbox {...props} />}
             />
             <Route
               path="/journal"
-              render={(props) => <Journal {...props} journals={this.state.journals} />
+              render={(props) => <Journal {...props} journals={this.state.journals} addJournal={this.addJournal}/>
               }
             />
-          </Switch>
         </div>
     );
   }

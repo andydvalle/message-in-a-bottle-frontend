@@ -14,17 +14,17 @@ class App extends Component {
     this.state= {
       auth: {
         user: {}
-      },
-      journals: [],
-      messages: []
+      }
     }
   }
 
+  // used in submitting login Form, sets App state and token for user
   onLogin = data => {
     const updatedState = { ...this.state.auth, user: {id: data.id, name: data.name}};
     localStorage.setItem("token", data.jwt);
     this.setState({ auth: updatedState })
   }
+
 
   onLogout = () => {
     localStorage.removeItem("token");
@@ -32,10 +32,12 @@ class App extends Component {
   }
 
 
-  
   componentDidMount() {
+    // gets token
     const token = localStorage.getItem("token")
     console.log(token)
+
+    // if token exists calls getCurrentUser and sets auth state)
     if (token) {
       api.auth.getCurrentUser().then(user => {
         const updatedState = { ...this.state.auth, user: user }
@@ -67,7 +69,6 @@ class App extends Component {
             path="/signup"
             render={props => <Signup {...props} onLogin={this.onLogin} />}
           />
-          <NavBar />
       </div>
     );
   }

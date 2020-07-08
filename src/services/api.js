@@ -11,26 +11,19 @@ const headers = () => {
 
 const fetchMessages = () => {
     const URL = "http://localhost:3000/api/v1/messages"
-    fetch(URL)
-    .then(resp=>resp.json())
-    .then(data=>this.setState({
-      messages: data
-    }))
+    return fetch(URL).then(resp=>resp.json())
+    
 }
 
 const fetchJournals = () => {
     const URL = "http://localhost:3000/api/v1/journals"
-    fetch(URL)
-    .then(resp=>resp.json())
-    .then(data=>this.setState({
-      journals: data
-    }))
+    return fetch(URL).then(resp=>resp.json())
 }
 
 const postJournal = (data) => {
     // console.log("posting journal entry")
-    const URL = "http://localhost:3000/journals"
-    fetch(URL, {
+    const URL = "http://localhost:3000/api/v1/journals"
+    return fetch(URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,34 +32,32 @@ const postJournal = (data) => {
       body: JSON.stringify(data)
     })
     .then(resp=>resp.json())
-    .then(data=>this.fetchJournals())
   }
 
 //POST fetch messages, then GET fetch messages
 const postMessage = (data) => {
 // console.log("posting message")
-const URL = "http://localhost:3000/messages"
-fetch(URL, {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json',
-    Accept: 'application/json'
-    },
-    body: JSON.stringify(data)
-})
-.then(resp=>resp.json())
-.then(data=>this.fetchMessages())
+    const URL = "http://localhost:3000/api/v1/messages"
+    return fetch(URL, {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(resp=>resp.json())
+
 }
 
 //DELETE fetch messages, then GET fetch messages
 const deleteMessage = (messageId) => {
 // console.log(`deleting ${messageId}`)
-const URL = `http://localhost:3000/messages/${messageId}`
-fetch(URL, {
-    method: 'DELETE'
-})
-.then(resp=>resp.json())
-.then(data=>this.fetchMessages())
+    const URL = `http://localhost:3000/api/v1/messages/${messageId}`
+    return fetch(URL, {
+        method: 'DELETE'
+    })
+    .then(resp=>resp.json())
 }
 
 //DELETE fetch journals, then GET fetch journals
