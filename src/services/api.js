@@ -29,7 +29,7 @@ const fetchJournals = () => {
 
 const postJournal = (data) => {
     // console.log("posting journal entry")
-    const URL = "http://localhost:3000/journals"
+    const URL = "http://localhost:3000/api/v1/journals"
     fetch(URL, {
       method: 'POST',
       headers: {
@@ -45,7 +45,7 @@ const postJournal = (data) => {
 //POST fetch messages, then GET fetch messages
 const postMessage = (data) => {
 // console.log("posting message")
-const URL = "http://localhost:3000/messages"
+const URL = "http://localhost:3000/api/v1/messages"
 fetch(URL, {
     method: 'POST',
     headers: {
@@ -61,7 +61,7 @@ fetch(URL, {
 //DELETE fetch messages, then GET fetch messages
 const deleteMessage = (messageId) => {
 // console.log(`deleting ${messageId}`)
-const URL = `http://localhost:3000/messages/${messageId}`
+const URL = `http://localhost:3000/api/v1/messages/${messageId}`
 fetch(URL, {
     method: 'DELETE'
 })
@@ -72,7 +72,7 @@ fetch(URL, {
 //DELETE fetch journals, then GET fetch journals
 const deleteJournal = (journalId) => {
 // console.log(`deleting ${journalId}`)
-const URL = `http://localhost:3000/journals/${journalId}`
+const URL = `http://localhost:3000/api/v1/journals/${journalId}`
 fetch(URL, {
     method: 'DELETE'
 })
@@ -84,7 +84,7 @@ fetch(URL, {
 //*NOT WORKING PROPERLY, DELETES JOURNAL ENTRY* 
 const editJournal = (data) => {
 // console.log(`editing ${data.id}`)
-const URL= `http://localhost:3000/journals/${data.id}`
+const URL= `http://localhost:3000/api/v1/journals/${data.id}`
 fetch(URL, {
     method: 'PUT',
     headers: {
