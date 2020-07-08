@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
-import './App.css';
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 import NavBar from './components/NavBar.js'
 import Dashboard from './containers/Dashboard.js'
 import Login from './components/Login.js'
@@ -49,7 +50,6 @@ class App extends Component {
   render() {
   return (
       <div className="App">
-          Hi from app
           <NavBar 
             currentUser={this.state.auth.user}
             handleLogout={this.onLogout}

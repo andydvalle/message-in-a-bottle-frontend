@@ -1,4 +1,13 @@
-.App {
+/* Modify the backgorund color */ 
+.navbar-custom { 
+  background-color: #36BDEB; 
+} 
+
+.btn-custom { 
+  background-color: #2C829E; 
+} 
+
+/* .App {
   text-align: center;
   padding: 5px;
 }
@@ -70,4 +79,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

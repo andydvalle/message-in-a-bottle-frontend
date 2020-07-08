@@ -36,15 +36,17 @@ class Signup extends React.Component {
     render() {
         const { fields } = this.state;
         return (
-            <div>
+            <div class="card col-sm-6 m-5">
                 {this.state.error ? <h1>Try Again</h1> : null }
-                <div>
+                <div class="card-body">
+                <h5 class="card-title">Create an account!</h5>
                     <form onSubmit={this.handleSubmit}>
-                        <div>
+                    <div class="form-group">
                             <label>Username</label>
                             <input
                             name="name"
-                            placeholder="username"
+                            class="form-control" 
+                            placeholder="Enter username"
                             value={fields.username}
                             onChange={this.handleChange}
                             />
@@ -54,12 +56,13 @@ class Signup extends React.Component {
                             <input
                             name="password"
                             type="password"
-                            placeholder="password"
+                            class="form-control" 
+                            placeholder="Password"
                             value={fields.password}
                             onChange={this.handleChange}
                             />
                         </div>
-                        <button type="submit">
+                        <button class="btn btn-primary btn mt-3" type="submit">
                             Sign up
                         </button>
                     </form>
