@@ -49,13 +49,13 @@ class Mailbox extends Component {
                         exact 
                         path='/dashboard/mailbox/inbox' 
                         render={props => 
-                        <Inbox {...props} removeMessage={this.removeMessage} messages={this.state.messages}/> }
+                        <Inbox {...props} removeMessage={this.removeMessage} messages={this.state.messages} currentUser={this.props.currentUser}/> }
                         />
                     <Route 
                         exact 
                         path='/dashboard/mailbox/outbox' 
                         render={props => 
-                        <Outbox {...props} removeMessage={this.removeMessage} messages={this.state.messages}/> }
+                        <Outbox {...props} removeMessage={this.removeMessage} messages={this.state.messages} currentUser={this.props.currentUser}/> }
                         />
                     <Route 
                         path='/dashboard/mailbox/message-form' 

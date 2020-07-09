@@ -28,13 +28,10 @@ class App extends Component {
     this.setState({ auth: updatedState })
   }
 
-
-
   onLogout = () => {
     localStorage.removeItem("token");
     this.setState({ auth: { user: {} } });
   }
-
 
   componentDidMount() {
     // gets token

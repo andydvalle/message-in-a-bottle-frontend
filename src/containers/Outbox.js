@@ -5,6 +5,9 @@ import Message from "../components/Message";
 
 class Outbox extends Component {
   renderMessages = () => {
+    const userOutbox = this.props.messages.filter(message => {
+      return message.sender_user_id === this.props.currentUser.id
+    })
     return this.props.messages.map((message) => {
       return (
         <Message
