@@ -38,7 +38,7 @@ class Dashboard extends Component {
 
   updateJournal = (journalEdit) => {
     const updatedJournals = this.state.journals.map((journal) =>
-      journal.id !== journalEdit.id ? journal : { ...journal, journalEdit }
+      journal.id !== journalEdit.id ? journal : journalEdit 
     );
     this.setState({
       journals: updatedJournals,

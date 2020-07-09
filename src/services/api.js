@@ -69,12 +69,16 @@ const deleteJournal = (journalId) => {
 const editJournal = (data) => {
     const URL= `http://localhost:3000/api/v1/journals/${data.id}`
     return fetch(URL, {
-        method: 'PUT',
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+            title: data.title,
+            content: data.content,
+            user_id: data.user_id
+            })
         }).then(resp=>resp.json())
 }
 

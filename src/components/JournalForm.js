@@ -27,7 +27,7 @@ class JournalForm extends Component {
       api.journals
         .editJournal(this.state)
         .then((data) => this.props.updateJournal(data));
-      this.props.resetJournalState();
+        // this.props.resetJournalState();
     } else {
       api.journals
         .postJournal(this.state)
