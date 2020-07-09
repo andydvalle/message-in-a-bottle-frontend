@@ -43,13 +43,13 @@ class Dashboard extends Component {
   render() {
     return (
         <div className="Dashboard">
-          Hi from Dashboard
+          Hi, {this.props.currentUser.name}
             <NavLink to="/dashboard/mailbox">Mailbox</NavLink>
             <NavLink to="/dashboard/journal">Journal</NavLink>
             <Switch>
                 <Route
                 path="/dashboard/mailbox"
-                render={props => <Mailbox {...props} />}
+                render={props => <Mailbox {...props} currentUser={this.props.currentUser}/>}
                 />
                 <Route
                 path="/dashboard/journal"

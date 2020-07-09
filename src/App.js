@@ -23,9 +23,11 @@ class App extends Component {
   // used in submitting login Form, sets App state and token for user
   onLogin = data => {
     const updatedState = { ...this.state.auth, user: {id: data.id, name: data.name}};
+    console.log(data)
     localStorage.setItem("token", data.jwt);
     this.setState({ auth: updatedState })
   }
+
 
 
   onLogout = () => {
@@ -68,7 +70,7 @@ class App extends Component {
             />
             <Route
               path="/dashboard"
-              render={props => <Dashboard {...props} />}
+              render={props => <Dashboard {...props} currentUser={this.state.auth.user} />}
               />
           {/* </Switch> */}
       </div>

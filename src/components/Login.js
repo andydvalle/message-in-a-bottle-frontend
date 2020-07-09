@@ -29,29 +29,14 @@ class Login extends React.Component {
         // calls login function from App.js if no error from fetch
         this.props.onLogin(resp);
         // redirects to home page, dashboard
-        this.props.history.push("/");
+        this.props.history.push("/dashboard");
       } else {
         this.setState({ error: true });
       }
     });
   };
 
-    // submit event handler
-    handleSubmit = e => {
-        e.preventDefault()
-        // fetch request to login
-        api.auth.login(this.state.fields)
-        .then(resp => {
-            if (!resp.error) {
-                // calls login function from App.js if no error from fetch
-                this.props.onLogin(resp);
-                // redirects to home page, dashboard
-                this.props.history.push('/dashboard');
-            } else {
-                this.setState( { error: true })
-            }
-        })
-    }
+ 
   render() {
     const { fields } = this.state;
     return (

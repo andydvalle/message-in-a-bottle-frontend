@@ -13,9 +13,15 @@ class Mailbox extends Component {
 
     componentDidMount() {
         api.messages.fetchMessages()
-        .then(data=>this.setState({
-            messages: data
-          }))
+        .then(data => {
+            console.log(data)
+            const userMessages = data.filter(message => {
+                return message.id == this.props.currentUser.id
+            })
+            this.setState({
+                messages: userMessages
+            })
+        })
     }
 
     addMessage = (data) => {

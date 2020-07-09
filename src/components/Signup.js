@@ -14,10 +14,12 @@ class Signup extends React.Component {
         }
     }
 
+    // handles change in signup form
     handleChange = e => {
         const newFields = {...this.state.fields, [e.target.name]: e.target.value };
         this.setState({fields: newFields});
     }
+
 
     handleSubmit = e => {
         e.preventDefault()
@@ -26,7 +28,7 @@ class Signup extends React.Component {
             console.log(resp)
             if (!resp.error) {
                 this.props.onLogin(resp);
-                this.props.history.push('/');
+                this.props.history.push('/dashboard');
             } else {
                 this.setState( { error: true })
             }
