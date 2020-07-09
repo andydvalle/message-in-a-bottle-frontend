@@ -47,7 +47,7 @@ class Journal extends Component {
     render(){
         return (
             <div className="Journal">
-                Hi from Journal
+                {/* Hi from Journal */}
                 <JournalForm resetJournalState={this.resetJournalState} updateFormData={this.state} addJournal={this.props.addJournal} updateJournal={this.props.updateJournal}/>
                 {this.renderJournalEntry()}
             </div>

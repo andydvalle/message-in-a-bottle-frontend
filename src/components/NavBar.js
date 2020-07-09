@@ -25,12 +25,12 @@ class NavBar extends Component {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <Link class="nav-link" to="/">
+                <Link class="nav-link" to="/dashboard">
                   Dashboard <span class="sr-only">(current)</span>
                 </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" to="/journal">
+                <Link class="nav-link" to="/dashboard/journal">
                   Journal
                 </Link>
               </li>
@@ -47,14 +47,14 @@ class NavBar extends Component {
                   Mailbox
                 </Link>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <Link class="dropdown-item" to="/mailbox/inbox">
+                  <Link class="dropdown-item" to="/dashboard/mailbox/inbox">
                     Inbox
                   </Link>
                   <Link class="dropdown-item" to="/mailbox/inbox">
                     Sent Messages
                   </Link>
                   <div class="dropdown-divider"></div>
-                  <Link class="dropdown-item" to="/message-form">
+                  <Link class="dropdown-item" to="/dashboard/mailbox/message-form">
                     New Message
                   </Link>
                 </div>

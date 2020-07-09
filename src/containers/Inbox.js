@@ -14,7 +14,7 @@ class Inbox extends Component {
     render(){
         return (
             <div className="Inbox">
-                Hi from Inbox
+                {/* Hi from Inbox */}
                 {this.renderMessages()}
             </div>
         )
