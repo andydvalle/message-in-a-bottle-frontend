@@ -50,7 +50,7 @@ class NavBar extends Component {
                   <Link class="dropdown-item" to="/dashboard/mailbox/inbox">
                     Inbox
                   </Link>
-                  <Link class="dropdown-item" to="/mailbox/inbox">
+                  <Link class="dropdown-item" to="/dashboard/mailbox/outbox">
                     Sent Messages
                   </Link>
                   <div class="dropdown-divider"></div>

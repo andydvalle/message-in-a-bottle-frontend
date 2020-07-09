@@ -13,52 +13,63 @@ class Dashboard extends Component {
   };
 
   componentDidMount() {
-    api.journals.fetchJournals()
-    .then(data=>this.setState({
-        journals: data
-      }))
+    api.journals.fetchJournals().then((data) =>
+      this.setState({
+        journals: data,
+      })
+    );
   }
 
   addJournal = (data) => {
-      const newJournals = [...this.state.journals, data]
-      this.setState({
-          journals: newJournals
-      })
-  }
+    const newJournals = [...this.state.journals, data];
+    this.setState({
+      journals: newJournals,
+    });
+  };
 
   removeJournal = (journalId) => {
-      const updatedJournals = this.state.journals.filter(journal => journal.id !== journalId)
-      this.setState({
-        journals: updatedJournals
-      })
-  }
+    const updatedJournals = this.state.journals.filter(
+      (journal) => journal.id !== journalId
+    );
+    this.setState({
+      journals: updatedJournals,
+    });
+  };
 
   updateJournal = (journalEdit) => {
-    const updatedJournals = this.state.journals.map(journal => journal.id !== journalEdit.id ? journal : {...journal, journalEdit} )
+    const updatedJournals = this.state.journals.map((journal) =>
+      journal.id !== journalEdit.id ? journal : { ...journal, journalEdit }
+    );
     this.setState({
-      journals: updatedJournals
-    })
-  }
+      journals: updatedJournals,
+    });
+  };
 
   render() {
     return (
-        <div className="Dashboard">
-          Hi from Dashboard
-            <NavLink to="/dashboard/mailbox">Mailbox</NavLink>
-            <NavLink to="/dashboard/journal">Journal</NavLink>
-            <Switch>
-                <Route
-                path="/dashboard/mailbox"
-                render={props => <Mailbox {...props} />}
-                />
-                <Route
-                path="/dashboard/journal"
-                render={(props) => (
-                <Journal {...props} journals={this.state.journals} addJournal={this.addJournal} removeJournal={this.removeJournal} updateJournal={this.updateJournal}/>
-                )}
-                />
-            </Switch>
-        </div>
+      <div className="Dashboard">
+        Hi from Dashboard
+        {/* <NavLink to="/dashboard/mailbox">Mailbox</NavLink>
+        <NavLink to="/dashboard/journal">Journal</NavLink> */}
+        <Switch>
+          <Route
+            path="/dashboard/mailbox"
+            render={(props) => <Mailbox {...props} />}
+          />
+          <Route
+            path="/dashboard/journal"
+            render={(props) => (
+              <Journal
+                {...props}
+                journals={this.state.journals}
+                addJournal={this.addJournal}
+                removeJournal={this.removeJournal}
+                updateJournal={this.updateJournal}
+              />
+            )}
+          />
+        </Switch>
+      </div>
     );
   }
 }
