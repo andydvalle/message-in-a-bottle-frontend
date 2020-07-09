@@ -13,10 +13,14 @@ class Dashboard extends Component {
   };
 
   componentDidMount() {
-    api.journals.fetchJournals().then((data) =>
-      this.setState({
-        journals: data,
-      })
+    api.journals.fetchJournals().then((data) => {
+        const userJournals = data.filter(journal => {
+            return journal.user_id == this.props.currentUser.id
+        })
+        this.setState({
+          journals: userJournals,
+        })
+    }
     );
   }
 
@@ -47,29 +51,23 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className="Dashboard">
-        Hi from Dashboard
-        {/* <NavLink to="/dashboard/mailbox">Mailbox</NavLink>
-        <NavLink to="/dashboard/journal">Journal</NavLink> */}
-        <Switch>
-          <Route
-            path="/dashboard/mailbox"
-            render={(props) => <Mailbox {...props} />}
-          />
-          <Route
-            path="/dashboard/journal"
-            render={(props) => (
-              <Journal
-                {...props}
-                journals={this.state.journals}
-                addJournal={this.addJournal}
-                removeJournal={this.removeJournal}
-                updateJournal={this.updateJournal}
-              />
-            )}
-          />
-        </Switch>
-      </div>
+        <div className="Dashboard">
+          Hi, {this.props.currentUser.name}
+            <NavLink to="/dashboard/mailbox">Mailbox</NavLink>
+            <NavLink to="/dashboard/journal">Journal</NavLink>
+            <Switch>
+                <Route
+                path="/dashboard/mailbox"
+                render={props => <Mailbox {...props} currentUser={this.props.currentUser}/>}
+                />
+                <Route
+                path="/dashboard/journal"
+                render={(props) => (
+                <Journal {...props} journals={this.state.journals} addJournal={this.addJournal} removeJournal={this.removeJournal} updateJournal={this.updateJournal} currentUser={this.props.currentUser}/>
+                )}
+                />
+            </Switch>
+        </div>
     );
   }
 }

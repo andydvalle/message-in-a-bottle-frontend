@@ -95,12 +95,19 @@ const login = data => {
 }
 
 const getCurrentUser = () => {
-    return fetch('http://localhost:3000/api/v1/current_user', {
+    const URL = 'http://localhost:3000/api/v1/current_user'
+    return fetch(URL, {
         headers: headers()
     }).then(resp => {
         console.log(resp)
         return resp.json()
     })
+}
+
+const getAllUsers = () => {
+    const URL = 'http://localhost:3000/api/v1/users'
+    return fetch(URL)
+    .then(resp => resp.json())
 }
 
 export const api = {
@@ -119,5 +126,8 @@ export const api = {
         postJournal,
         deleteJournal,
         editJournal
+    },
+    users: {
+        getAllUsers
     }
 }

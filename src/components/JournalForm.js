@@ -49,7 +49,7 @@ class JournalForm extends Component {
         id: nextProps.updateFormData.id,
         title: nextProps.updateFormData.title,
         content: nextProps.updateFormData.content,
-        user_id: nextProps.updateFormData.user_id,
+        user_id: this.props.currentUser.id,
         isEdit: nextProps.updateFormData.isEdit,
       });
     }
@@ -79,7 +79,7 @@ class JournalForm extends Component {
               value={this.state.content}
               onChange={this.handleChange}
             />
-            <label>user_id</label>
+            {/* <label>user_id</label>
             <input
               type="text"
               name="user_id"
@@ -87,7 +87,7 @@ class JournalForm extends Component {
               placeholder="this should be hidden"
               value={this.state.user_id}
               onChange={this.handleChange}
-            />
+            /> */}
             <button className="btn btn-primary mt-3" type="submit">
               Submit Journal
             </button>
