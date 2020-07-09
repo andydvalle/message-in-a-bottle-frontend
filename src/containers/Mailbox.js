@@ -15,9 +15,8 @@ class Mailbox extends Component {
     componentDidMount() {
         api.messages.fetchMessages()
         .then(data => {
-            console.log(data)
             const userMessages = data.filter(message => {
-                return message.id == this.props.currentUser.id
+                return message.receiver_user_id == this.props.currentUser.id || message.sender_user_id == this.props.currentUser.id
             })
             this.setState({
                 messages: userMessages
@@ -61,7 +60,7 @@ class Mailbox extends Component {
                     <Route 
                         path='/dashboard/mailbox/message-form' 
                         render={props => 
-                        <MessageForm {...props} addMessage={this.addMessage}/>}
+                        <MessageForm {...props} addMessage={this.addMessage} currentUser={this.props.currentUser}/>}
                     />
                 </Switch>
             </div>
