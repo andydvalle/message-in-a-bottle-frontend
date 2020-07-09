@@ -3,6 +3,7 @@ import { Route, Switch, NavLink } from 'react-router-dom'
 import { api } from '../services/api'
 import MessageForm from '../components/MessageForm'
 import Inbox from './Inbox'
+import Outbox from './Outbox'
 // import AuthHOC from '../HOCs/AuthHOC'
 
 class Mailbox extends Component {
@@ -41,15 +42,21 @@ class Mailbox extends Component {
     render(){
         return (
             <div className="Mailbox">
-                Hi from Mailbox
-                <NavLink to="/dashboard/mailbox/inbox">Inbox</NavLink>
-                <NavLink to="/dashboard/mailbox/message-form">New Message</NavLink>
+                {/* Hi from Mailbox */}
+                {/* <NavLink to="/dashboard/mailbox/inbox">Inbox</NavLink>
+                <NavLink to="/dashboard/mailbox/message-form">New Message</NavLink> */}
                 <Switch>
                     <Route 
                         exact 
                         path='/dashboard/mailbox/inbox' 
                         render={props => 
                         <Inbox {...props} removeMessage={this.removeMessage} messages={this.state.messages}/> }
+                        />
+                    <Route 
+                        exact 
+                        path='/dashboard/mailbox/outbox' 
+                        render={props => 
+                        <Outbox {...props} removeMessage={this.removeMessage} messages={this.state.messages}/> }
                         />
                     <Route 
                         path='/dashboard/mailbox/message-form' 

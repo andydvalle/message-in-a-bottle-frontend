@@ -3,7 +3,7 @@ import Message from "../components/Message";
 
 //container that holds MessageForm and Messages
 
-class Inbox extends Component {
+class Outbox extends Component {
   renderMessages = () => {
     return this.props.messages.map((message) => {
       return (
@@ -19,12 +19,13 @@ class Inbox extends Component {
   render() {
     return (
       <div className="container">
-        <h3>Inbox</h3>
-        <h5>Discovered bottles</h5>
+        <h3>Sent Messages</h3>
+        <h5>Your bottles that floated away...</h5>
+
         {this.renderMessages()}
       </div>
     );
   }
 }
 
-export default Inbox;
+export default Outbox;

@@ -21,11 +21,13 @@ class JournalEntry extends Component {
         const {content, title} = this.props.journalEntryData
 
         return (
-            <div className="JournalEntry">
-                <h3>{title}</h3>
+            <div className="card">
+                <div className="card-body">
+                <h5>{title}</h5>
                 <p>{content}</p>
-                <button onClick={this.handleEditButton}>Edit</button>
-                <button onClick={this.handleDeleteButton}>Delete</button>
+                <button className="btn btn-outline-info btn-sm m-1" onClick={this.handleEditButton}>Edit</button>
+                <button className="btn btn-outline-danger btn-sm" onClick={this.handleDeleteButton}>Delete</button>
+                </div>
             </div>
         )
     }

@@ -1,11 +1,17 @@
-/* Modify the backgorund color */ 
-.navbar-custom { 
-  background-color: #36BDEB; 
-} 
+/* Modify the backgorund color */
+.navbar-custom {
+  background-color: #ebb62a;
+}
 
-.btn-custom { 
-  background-color: #2C829E; 
-} 
+/* .btn-default {
+  background-color: #2c829e;
+} */
+
+/* .btn-default {
+  background-color: #68889e;
+  color: #fff;
+  border-color: #2f3e48;
+} */
 
 /* .App {
   text-align: center;

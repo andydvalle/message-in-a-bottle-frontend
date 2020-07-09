@@ -13,32 +13,37 @@ class Dashboard extends Component {
   };
 
   componentDidMount() {
-    api.journals.fetchJournals()
-    .then(data=>this.setState({
-        journals: data
-      }))
+    api.journals.fetchJournals().then((data) =>
+      this.setState({
+        journals: data,
+      })
+    );
   }
 
   addJournal = (data) => {
-      const newJournals = [...this.state.journals, data]
-      this.setState({
-          journals: newJournals
-      })
-  }
+    const newJournals = [...this.state.journals, data];
+    this.setState({
+      journals: newJournals,
+    });
+  };
 
   removeJournal = (journalId) => {
-      const updatedJournals = this.state.journals.filter(journal => journal.id !== journalId)
-      this.setState({
-        journals: updatedJournals
-      })
-  }
+    const updatedJournals = this.state.journals.filter(
+      (journal) => journal.id !== journalId
+    );
+    this.setState({
+      journals: updatedJournals,
+    });
+  };
 
   updateJournal = (journalEdit) => {
-    const updatedJournals = this.state.journals.map(journal => journal.id !== journalEdit.id ? journal : {...journal, journalEdit} )
+    const updatedJournals = this.state.journals.map((journal) =>
+      journal.id !== journalEdit.id ? journal : { ...journal, journalEdit }
+    );
     this.setState({
-      journals: updatedJournals
-    })
-  }
+      journals: updatedJournals,
+    });
+  };
 
   render() {
     return (
