@@ -5,7 +5,10 @@ import Message from "../components/Message";
 
 class Inbox extends Component {
   renderMessages = () => {
-    return this.props.messages.map((message) => {
+    const userInbox = this.props.messages.filter(message => {
+      return message.receiver_user_id === this.props.currentUser.id
+    })
+    return userInbox.map((message) => {
       return (
         <Message
           key={message.id}

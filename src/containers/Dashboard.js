@@ -17,11 +17,25 @@ class Dashboard extends Component {
         const userJournals = data.filter(journal => {
             return journal.user_id == this.props.currentUser.id
         })
+        userJournals.sort(this.sortJournals)
         this.setState({
           journals: userJournals,
         })
     }
     );
+  }
+
+  sortJournals = (a, b) => {
+    const aId = a.id
+    const bId = b.id
+
+    let comparison = 0;
+    if (aId > bId) {
+        comparison = 1;
+    } else if (aId < bId) {
+        comparison = -1
+    }
+    return comparison
   }
 
   addJournal = (data) => {
