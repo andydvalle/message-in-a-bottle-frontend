@@ -36,7 +36,6 @@ class App extends Component {
   componentDidMount() {
     // gets token
     const token = localStorage.getItem("token")
-    console.log(token)
 
     // if token exists calls getCurrentUser and sets auth state)
     if (token) {

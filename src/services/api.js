@@ -1,6 +1,7 @@
-
+//identifies the token held in the browser
 const token = () => localStorage.getItem("token");
 
+//standardizes headers for each fetch
 const headers = () => {
     return {
       "Content-Type": "application/json",
@@ -65,7 +66,6 @@ const deleteJournal = (journalId) => {
 }
 
 //PUT fetch, edit journals, then GET fetch journals
-//*NOT WORKING PROPERLY, DELETES JOURNAL ENTRY* 
 const editJournal = (data) => {
     const URL= `http://localhost:3000/api/v1/journals/${data.id}`
     return fetch(URL, {
