@@ -67,8 +67,12 @@ class Dashboard extends Component {
     return (
         <div className="Dashboard">
           Hi, {this.props.currentUser.name}
-            <NavLink to="/dashboard/mailbox">Mailbox</NavLink>
-            <NavLink to="/dashboard/journal">Journal</NavLink>
+          {(window.location.pathname === "/dashboard") ? 
+            (<div>
+                <NavLink to="/dashboard/mailbox">Mailbox</NavLink>
+                <NavLink to="/dashboard/journal">Journal</NavLink>
+            </div>)
+            : null }
             <Switch>
                 <Route
                 path="/dashboard/mailbox"

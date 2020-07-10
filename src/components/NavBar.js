@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import logo from "../message-in-a-bottle-logo.png"
 
 class NavBar extends Component {
+  
   render() {
+    const currentUser = this.props.currentUser
+    const loggedIn = !!this.props.currentUser.id
     return (
       <div>
         <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
@@ -22,7 +25,7 @@ class NavBar extends Component {
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          {loggedIn ? (<div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
                 <Link class="nav-link" to="/dashboard">
@@ -63,37 +66,39 @@ class NavBar extends Component {
             <ul class="navbar-nav ml-auto">
               {/* {loggedIn ? (
                 <a className="item">Welcome {currentUser.username}</a>
-              ) : null}
+              ) : null} */}
               {loggedIn ? (
-                <a className="item">
-                  <div
-                    onClick={() => {
-                      props.handleLogout();
-                      props.history.push("/login");
+                <li className="nav-item">
+                  <Link to="/login" className="nav-link">
+                    <div onClick={() => {
+                      this.props.handleLogout();
                     }}
                     className="ui primary button"
-                  >
-                    Sign Out
-                  </div>
-                </a>
+                    >
+                    Log Out
+                    </div>
+                  </Link>
+                </li>
               ) : (
-                <Link to="/login" className="item">
-                  <div className="ui primary button">Sign In</div>
-                </Link>
-              )} */}
-              <li class="nav-item">
+                <li className="nav-item">
+                  <Link to="/login" className="nav-item">
+                    <div className="nav-link">Sign In</div>
+                  </Link>
+                </li>
+              )}
+              {/* <li class="nav-item">
                 <Link class="nav-link" to="/login">
                   Login
                 </Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link class="nav-link btn btn-light" to="/signup">
                   Sign Up
                 </Link>
-              </li>
+              </li> */}
             </ul>
-          </div>
-        </nav>
+          </div>) : null }
+        </nav>  
       </div>
     );
   }

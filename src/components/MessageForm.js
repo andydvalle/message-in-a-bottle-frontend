@@ -4,11 +4,9 @@ import { api } from "../services/api";
 class MessageForm extends Component {
 
   constructor(props) {
-    super()
+    super(props)
     this.state = {
       content: "",
-      sender_user_id: "",
-      receiver_user_id: "",
       user_count: ""
     };
   }
@@ -16,12 +14,16 @@ class MessageForm extends Component {
   //sets state to current values of form inputs
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
   findReceiver = () => {
-    return Math.floor((Math.random() * this.state.user_count) + 1) 
+    let random = Math.floor((Math.random() * this.state.user_count) + 1) 
+    if (random === this.props.currentUser.id) {
+      return random++
+    }
+    return random
   }
 
   setSenderAndReceiver = () => {
@@ -36,14 +38,12 @@ class MessageForm extends Component {
     e.preventDefault();
     api.messages.postMessage({
       content: this.state.content,
-      sender_user_id: this.state.sender_user_id,
-      receiver_user_id: this.state.receiver_user_id
+      sender_user_id: this.props.currentUser.id,
+      receiver_user_id: this.findReceiver()
     })
     .then((data) => this.props.addMessage(data));
     this.setState({
-      content: "",
-      sender_user_id: "",
-      receiver_user_id: ""
+      content: ""
     });
   };
 
@@ -58,11 +58,20 @@ class MessageForm extends Component {
     this.getUserCount()
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.updateFormData !== this.state) {
-      this.setSenderAndReceiver()
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.updateFormData !== this.state) {
+  //     this.setState({
+  //       sender_user_id: this.props.currentUser.id,
+  //       receiver_user_id: this.findReceiver()
+  //     })
+  //   }
+  // }
+
+  // componentDidUpdate(previousProps) {
+  //   if (previousProps.data !== this.props.data) {
+  //     this.setSenderAndReceiver()
+  //   }
+  // }
 
   render() {
     return (
@@ -84,15 +93,14 @@ class MessageForm extends Component {
               you.
             </small>
 
-            {/* <label>sender_user_id</label>
             <input
-              type="text"
+              type="hidden"
               name="sender_user_id"
               class="form-control"
               placeholder="this should be hidden"
-              value={this.state.sender_user_id}
+              defaultValue={this.props.currentUser.id}
               onChange={this.handleChange}
-            /> */}
+            />
             {/* <label>receiver_user_id</label>
             <input
               type="text"
