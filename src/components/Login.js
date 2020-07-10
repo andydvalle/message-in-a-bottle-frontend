@@ -1,6 +1,7 @@
 import React from "react";
 import { api } from "../services/api";
 import { Link } from "react-router-dom";
+import Jumbotron from "./Jumbotron";
 
 class Login extends React.Component {
   constructor() {
@@ -36,21 +37,21 @@ class Login extends React.Component {
     });
   };
 
- 
   render() {
     const { fields } = this.state;
     return (
       <div className="container mt-5">
-        <div class="card col-sm-6">
+        <Jumbotron />
+        <div className="card col-sm-6">
           {this.state.error ? <h1>Try Again</h1> : null}
-          <div class="card-body">
-            <h5 class="card-title">Welcome to Message In a Bottle!</h5>
+          <div className="card-body">
+            <h5 className="card-title">Login to access messages</h5>
             <form onSubmit={this.handleSubmit}>
-              <div class="form-group">
+              <div className="form-group">
                 <label>Username</label>
                 <input
                   name="name"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Enter username"
                   value={fields.username}
                   onChange={this.handleChange}
@@ -61,16 +62,16 @@ class Login extends React.Component {
                 <input
                   name="password"
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Password"
                   value={fields.password}
                   onChange={this.handleChange}
                 />
               </div>
-              <button class="btn btn-primary btn mt-3 mr-3" type="submit">
+              <button className="btn btn-primary btn mt-3 mr-3" type="submit">
                 Login
               </button>
-              <Link to="/signup">Sign up</Link>
+              <Link to="/signup">Not a member? Sign up</Link>
             </form>
           </div>
         </div>

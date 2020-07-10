@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import logo from "../message-in-a-bottle-logo.png"
+import logo from "../png/message-in-a-bottle-logo.png"
 
 class NavBar extends Component {
   
@@ -34,7 +34,7 @@ class NavBar extends Component {
               </li>
               <li class="nav-item">
                 <Link class="nav-link" to="/dashboard/journal">
-                  Journal
+                  My Journal
                 </Link>
               </li>
               <li class="nav-item dropdown">
@@ -47,7 +47,7 @@ class NavBar extends Component {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Mailbox
+                  My Messages
                 </Link>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <Link class="dropdown-item" to="/dashboard/mailbox/inbox">
@@ -90,10 +90,10 @@ class NavBar extends Component {
                 <Link class="nav-link" to="/login">
                   Login
                 </Link>
-              </li> */}
-              {/* <li>
-                <Link class="nav-link btn btn-light" to="/signup">
-                  Sign Up
+              </li>
+              <li>
+                <Link class="nav-link btn btn-primary" to="/signup">
+                  Start Here
                 </Link>
               </li> */}
             </ul>

@@ -22,8 +22,8 @@ class Inbox extends Component {
   render() {
     return (
       <div className="container">
-        <h3>Inbox</h3>
-        <h5>Discovered bottles</h5>
+        <h3>Found Messages</h3>
+        <h5>Yes! New bottles.</h5>
         {this.renderMessages()}
       </div>
     );
