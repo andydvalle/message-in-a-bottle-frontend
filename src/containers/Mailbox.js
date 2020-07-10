@@ -55,7 +55,7 @@ class Mailbox extends Component {
               <div className="card-body">
                 <h5 className="card-title">Found messages</h5>
                 <p className="card-text">
-                  Bottled messages washed up at your feet! Look what others have shared that you can only see.
+                  Bottled messages washed up at your feet! Look what others have shared.
                 </p>
                 <NavLink
                   to="/dashboard/mailbox/inbox"
@@ -70,7 +70,7 @@ class Mailbox extends Component {
               <div className="card-body">
                 <h5 className="card-title">Sent messages</h5>
                 <p className="card-text">
-                  Look back on messages you've sent a float.
+                  Look back on messages you've sent afloat.
                 </p>
                 <NavLink
                   to="/dashboard/mailbox/outbox"
@@ -85,7 +85,7 @@ class Mailbox extends Component {
               <div className="card-body">
                 <h5 className="card-title">Send a message</h5>
                 <p className="card-text">
-                  Create a message in a bottle.
+                  Create a message in a bottle!
                 </p>
                 <NavLink
                   to="/dashboard/mailbox/message-form"

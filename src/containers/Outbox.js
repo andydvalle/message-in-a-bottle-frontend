@@ -23,7 +23,7 @@ class Outbox extends Component {
     return (
       <div className="container">
         <h3>Sent Messages</h3>
-        <h5>Bottles that floated away. Hope they find their way...</h5>
+        <h5>Bottles that floated off. Hope they find their way...</h5>
 
         {this.renderMessages()}
       </div>

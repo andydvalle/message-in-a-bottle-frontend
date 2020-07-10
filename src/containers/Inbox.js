@@ -23,7 +23,7 @@ class Inbox extends Component {
     return (
       <div className="container">
         <h3>Found Messages</h3>
-        <h5>Yes! New bottles</h5>
+        <h5>Yes! New bottles.</h5>
         {this.renderMessages()}
       </div>
     );
