@@ -40,35 +40,35 @@ class Login extends React.Component {
     const { fields } = this.state;
     return (
       <div className="container mt-5">
-        <div class="jumbotron">
-          <div className="jumbotron-content col-sm-4">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">
+        <div className="jumbotron">
+          <div className="jumbotron-content col-sm-4 p-3">
+            <h1 className="display-4">Welcome!</h1>
+            <p className="lead">
               This is a simple hero unit, a simple jumbotron-style component for
               calling extra attention to featured content or information.
             </p>
-            <hr class="my-4" />
+            <hr className="my-4" />
             <p>
-              It uses utility classes for typography and spacing to space
+              It uses utility classNamees for typography and spacing to space
               content out within the larger container.
             </p>
-            <p class="lead">
-              <a class="btn btn-primary btn-lg" href="#" role="button">
+            {/* <p className="lead">
+              <a className="btn btn-primary btn-lg" href="#" role="button">
                 Learn more
               </a>
-            </p>
+            </p> */}
           </div>
         </div>
-        <div class="card col-sm-6">
+        <div className="card col-sm-6">
           {this.state.error ? <h1>Try Again</h1> : null}
-          <div class="card-body">
-            <h5 class="card-title">Welcome to Message In a Bottle!</h5>
+          <div className="card-body">
+            <h5 className="card-title">Welcome to Message In a Bottle!</h5>
             <form onSubmit={this.handleSubmit}>
-              <div class="form-group">
+              <div className="form-group">
                 <label>Username</label>
                 <input
                   name="name"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Enter username"
                   value={fields.username}
                   onChange={this.handleChange}
@@ -79,13 +79,13 @@ class Login extends React.Component {
                 <input
                   name="password"
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Password"
                   value={fields.password}
                   onChange={this.handleChange}
                 />
               </div>
-              <button class="btn btn-primary btn mt-3 mr-3" type="submit">
+              <button className="btn btn-primary btn mt-3 mr-3" type="submit">
                 Login
               </button>
               <Link to="/signup">Sign up</Link>

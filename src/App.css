@@ -10,6 +10,7 @@
 
 .jumbotron-content {
   background-color: rgba(245, 245, 220, 0.762);
+  border-radius: 5px;
 }
 
 /* .btn-default {
