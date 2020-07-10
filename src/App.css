@@ -3,6 +3,15 @@
   background-color: #ebb62a;
 }
 
+.jumbotron {
+  background-image: url("./png/charlotte-noelle-1C7IPvxg4-0-unsplash.jpg");
+  background-size: cover;
+}
+
+.jumbotron-content {
+  background-color: rgba(245, 245, 220, 0.762);
+}
+
 /* .btn-default {
   background-color: #2c829e;
 } */
