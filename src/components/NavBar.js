@@ -31,7 +31,7 @@ class NavBar extends Component {
               </li>
               <li class="nav-item">
                 <Link class="nav-link" to="/dashboard/journal">
-                  Journal
+                  My Journal
                 </Link>
               </li>
               <li class="nav-item dropdown">
@@ -44,7 +44,7 @@ class NavBar extends Component {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Mailbox
+                  My Messages
                 </Link>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <Link class="dropdown-item" to="/dashboard/mailbox/inbox">
@@ -87,8 +87,8 @@ class NavBar extends Component {
                 </Link>
               </li>
               <li>
-                <Link class="nav-link btn btn-light" to="/signup">
-                  Sign Up
+                <Link class="nav-link btn btn-primary" to="/signup">
+                  Start Here
                 </Link>
               </li>
             </ul>

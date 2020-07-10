@@ -3,6 +3,10 @@
   background-color: #ebb62a;
 }
 
+.card-custom {
+  background-color: #ebb82ae5;
+}
+
 .jumbotron {
   background-image: url("./png/charlotte-noelle-1C7IPvxg4-0-unsplash.jpg");
   background-size: cover;

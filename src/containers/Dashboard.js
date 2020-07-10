@@ -70,29 +70,27 @@ class Dashboard extends Component {
         {/* Hi from Dashboard Copy */}
         {window.location.pathname === "/dashboard" ? (
           <div className="row">
-            <div className="card mr-5" style={{width : '18rem'}} >
+            <div className="card mr-5" style={{width : '18rem'}}>
+              <img className="card-img-top p-2" src={bottles} alt="Card image cap" />
+              <div className="card-body">
+                <h5 className="card-title">Messages</h5>
+                <p className="card-text">
+                  View, create, and send messages in a bottle.
+                </p>
+                <NavLink to="/dashboard/mailbox" className="btn btn-primary">
+                  View Messages
+                </NavLink>
+              </div>
+            </div>
+            <div className="card" style={{width : '18rem'}} >
               <img className="card-img-top p-2" src={journal} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">Journal</h5>
                 <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Write personal journal entries for your eyes only.
                 </p>
                 <NavLink to="/dashboard/journal" className="btn btn-primary">
                   View Journal
-                </NavLink>
-              </div>
-            </div>
-            <div className="card" style={{width : '18rem'}}>
-              <img className="card-img-top p-2" src={bottles} alt="Card image cap" />
-              <div className="card-body">
-                <h5 className="card-title">Mailbox</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <NavLink to="/dashboard/mailbox" className="btn btn-primary">
-                  View Mailbox
                 </NavLink>
               </div>
             </div>

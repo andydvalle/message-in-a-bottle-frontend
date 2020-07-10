@@ -60,22 +60,22 @@ class JournalForm extends Component {
       <div className="container m-3" >
         <div className="card">
           <form className="card-body" onSubmit={this.handleJournalForm}>
-          <h5 class="card-title">New Journal Entry</h5>
-            <label>Title</label>
+          <h5 class="card-title">Begin a new journal entry</h5>
+            <label>What's your entry title?</label>
             <input
               type="text"
               name="title"
               class="form-control"
-              placeholder="Give this entry a title"
+              placeholder="Example: This happened today..."
               value={this.state.title}
               onChange={this.handleChange}
             />
-            <label>Journal Entry</label>
+            <label className="pt-2">Spill your thoughts.</label>
             <textarea
               type="text"
               name="content"
               class="form-control"
-              placeholder="What are you thinking about today?"
+              placeholder="Example: I was walking around and found..."
               value={this.state.content}
               onChange={this.handleChange}
             />
@@ -89,7 +89,7 @@ class JournalForm extends Component {
               onChange={this.handleChange}
             /> */}
             <button className="btn btn-primary mt-3" type="submit">
-              Submit Journal
+              Save Journal Entry
             </button>
           </form>
         </div>

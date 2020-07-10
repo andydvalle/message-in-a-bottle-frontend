@@ -1,6 +1,7 @@
 import React from "react";
 import { api } from "../services/api";
 import { Link } from "react-router-dom";
+import Jumbotron from "./Jumbotron";
 
 class Login extends React.Component {
   constructor() {
@@ -40,29 +41,11 @@ class Login extends React.Component {
     const { fields } = this.state;
     return (
       <div className="container mt-5">
-        <div className="jumbotron">
-          <div className="jumbotron-content col-sm-4 p-3">
-            <h1 className="display-4">Welcome!</h1>
-            <p className="lead">
-              This is a simple hero unit, a simple jumbotron-style component for
-              calling extra attention to featured content or information.
-            </p>
-            <hr className="my-4" />
-            <p>
-              It uses utility classNamees for typography and spacing to space
-              content out within the larger container.
-            </p>
-            {/* <p className="lead">
-              <a className="btn btn-primary btn-lg" href="#" role="button">
-                Learn more
-              </a>
-            </p> */}
-          </div>
-        </div>
+        <Jumbotron />
         <div className="card col-sm-6">
           {this.state.error ? <h1>Try Again</h1> : null}
           <div className="card-body">
-            <h5 className="card-title">Welcome to Message In a Bottle!</h5>
+            <h5 className="card-title">Login to access messages</h5>
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label>Username</label>
@@ -88,7 +71,7 @@ class Login extends React.Component {
               <button className="btn btn-primary btn mt-3 mr-3" type="submit">
                 Login
               </button>
-              <Link to="/signup">Sign up</Link>
+              <Link to="/signup">Not a member? Sign up</Link>
             </form>
           </div>
         </div>

@@ -69,13 +69,13 @@ class MessageForm extends Component {
       <div className="container m-3">
         <div className="card">
           <form className="card-body" onSubmit={this.handlePostMessage}>
-            <h5 className="card-title">Send a message in a bottle</h5>
-            <label>Your message:</label>
+            <h5 className="card-title">Create a message in a bottle</h5>
+            <label>What would you like to share?</label>
             <textarea
               type="text"
               name="content"
               class="form-control"
-              placeholder="What would you like to say?"
+              placeholder="Example: I've always wanted to learn how to fly..."
               value={this.state.content}
               onChange={this.handleChange}
             />

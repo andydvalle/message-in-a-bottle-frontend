@@ -50,29 +50,27 @@ class Mailbox extends Component {
         {/* Hi from Mailbox */}
         {window.location.pathname === "/dashboard/mailbox" ? (
           <div className="row">
-            <div className="card mr-5" style={{width : '18rem'}}>
+            <div className="card mr-5 mb-3" style={{width : '18rem'}}>
               <img className="card-img-top" src={received} alt="Card image cap" />
               <div className="card-body">
-                <h5 className="card-title">Inbox</h5>
+                <h5 className="card-title">Found messages</h5>
                 <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Bottled messages washed up at your feet! Look what others have shared that you can only see.
                 </p>
                 <NavLink
                   to="/dashboard/mailbox/inbox"
                   className="btn btn-primary"
                 >
-                  View Inbox
+                  View Messages
                 </NavLink>
               </div>
             </div>
-            <div className="card mr-5" style={{width : '18rem'}}>
+            <div className="card mr-5 mb-3" style={{width : '18rem'}}>
               <img className="card-img-top" src={sent} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">Sent messages</h5>
                 <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Look back on messages you've sent a float.
                 </p>
                 <NavLink
                   to="/dashboard/mailbox/outbox"
@@ -87,14 +85,13 @@ class Mailbox extends Component {
               <div className="card-body">
                 <h5 className="card-title">Send a message</h5>
                 <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Create a message in a bottle.
                 </p>
                 <NavLink
                   to="/dashboard/mailbox/message-form"
                   className="btn btn-primary"
                 >
-                  Create a message
+                  Create a Message
                 </NavLink>
               </div>
             </div>
