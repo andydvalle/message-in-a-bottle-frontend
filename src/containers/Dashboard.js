@@ -4,7 +4,8 @@ import { Route, Switch, NavLink } from "react-router-dom";
 import Mailbox from "./Mailbox";
 import Journal from "./Journal.js";
 import { api } from "../services/api";
-import logo from "../message-in-a-bottle-logo.png";
+import journal from "../png/journal.png";
+import bottles from "../png/mailbox-bottles.png";
 
 //container that holds inbox and journal
 
@@ -65,12 +66,12 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container mt-5">
         {/* Hi from Dashboard Copy */}
         {window.location.pathname === "/dashboard" ? (
           <div className="row">
             <div className="card col-sm-6">
-              <img className="card-img-top" src={logo} alt="Card image cap" />
+              <img className="card-img-top" src={journal} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">Journal</h5>
                 <p className="card-text">
@@ -83,7 +84,7 @@ class Dashboard extends Component {
               </div>
             </div>
             <div className="card col-sm-6">
-              <img className="card-img-top" src={logo} alt="Card image cap" />
+              <img className="card-img-top" src={bottles} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">Mailbox</h5>
                 <p className="card-text">

@@ -4,7 +4,9 @@ import { api } from "../services/api";
 import MessageForm from "../components/MessageForm";
 import Inbox from "./Inbox";
 import Outbox from "./Outbox";
-import logo from "../message-in-a-bottle-logo.png"
+import received from "../png/received-message.png"
+import sent from "../png/sent-message.png"
+import form from "../png/message-form.png"
 // import AuthHOC from '../HOCs/AuthHOC'
 
 class Mailbox extends Component {
@@ -49,7 +51,7 @@ class Mailbox extends Component {
         {window.location.pathname === "/dashboard/mailbox" ? (
           <div className="row">
             <div className="card col-sm-4">
-              <img className="card-img-top" src={logo} alt="Card image cap" />
+              <img className="card-img-top" src={received} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">Inbox</h5>
                 <p className="card-text">
@@ -65,7 +67,7 @@ class Mailbox extends Component {
               </div>
             </div>
             <div className="card col-sm-4">
-              <img className="card-img-top" src={logo} alt="Card image cap" />
+              <img className="card-img-top" src={sent} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">Sent messages</h5>
                 <p className="card-text">
@@ -81,7 +83,7 @@ class Mailbox extends Component {
               </div>
             </div>
             <div className="card col-sm-4">
-              <img className="card-img-top" src={logo} alt="Card image cap" />
+              <img className="card-img-top" src={form} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">Send a message</h5>
                 <p className="card-text">
