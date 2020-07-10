@@ -17,7 +17,7 @@ class Dashboard extends Component {
   componentDidMount() {
     api.journals.fetchJournals().then((data) => {
       const userJournals = data.filter((journal) => {
-        return journal.user_id == this.props.currentUser.id;
+        return journal.user_id === this.props.currentUser.id;
       });
       userJournals.sort(this.sortJournals);
       this.setState({
@@ -71,7 +71,7 @@ class Dashboard extends Component {
         {window.location.pathname === "/dashboard" ? (
           <div className="row">
             <div className="card mr-5" style={{width : '18rem'}}>
-              <img className="card-img-top p-2" src={bottles} alt="Card image cap" />
+              <img className="card-img-top p-2" src={bottles} alt="Card cap" />
               <div className="card-body">
                 <h5 className="card-title">Messages</h5>
                 <p className="card-text">
@@ -83,7 +83,7 @@ class Dashboard extends Component {
               </div>
             </div>
             <div className="card" style={{width : '18rem'}} >
-              <img className="card-img-top p-2" src={journal} alt="Card image cap" />
+              <img className="card-img-top p-2" src={journal} alt="Card cap" />
               <div className="card-body">
                 <h5 className="card-title">Journal</h5>
                 <p className="card-text">

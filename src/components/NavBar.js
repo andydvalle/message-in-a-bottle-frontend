@@ -11,7 +11,7 @@ class NavBar extends Component {
       <div>
         <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
           <Link class="navbar-brand" to="/login">
-            <img src={logo}/>
+            <img src={logo} alt="message in a bottle logo"/>
           </Link>
           <button
             class="navbar-toggler"

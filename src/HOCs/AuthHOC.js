@@ -1,6 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { api } from "../services/api";
-import { Redirect } from "react-router-dom";
 
 const AuthHOC = (WrappedComponent) => {
     return class AuthHOC extends React.Component {
