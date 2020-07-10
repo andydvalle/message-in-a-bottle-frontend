@@ -50,7 +50,7 @@ class Mailbox extends Component {
         {/* Hi from Mailbox */}
         {window.location.pathname === "/dashboard/mailbox" ? (
           <div className="row">
-            <div className="card col-sm-4">
+            <div className="card mr-5" style={{width : '18rem'}}>
               <img className="card-img-top" src={received} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">Inbox</h5>
@@ -66,7 +66,7 @@ class Mailbox extends Component {
                 </NavLink>
               </div>
             </div>
-            <div className="card col-sm-4">
+            <div className="card mr-5" style={{width : '18rem'}}>
               <img className="card-img-top" src={sent} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">Sent messages</h5>
@@ -82,7 +82,7 @@ class Mailbox extends Component {
                 </NavLink>
               </div>
             </div>
-            <div className="card col-sm-4">
+            <div className="card" style={{width : '18rem'}}>
               <img className="card-img-top" src={form} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">Send a message</h5>

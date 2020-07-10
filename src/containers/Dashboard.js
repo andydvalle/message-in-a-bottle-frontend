@@ -70,8 +70,8 @@ class Dashboard extends Component {
         {/* Hi from Dashboard Copy */}
         {window.location.pathname === "/dashboard" ? (
           <div className="row">
-            <div className="card col-sm-6">
-              <img className="card-img-top" src={journal} alt="Card image cap" />
+            <div className="card mr-5" style={{width : '18rem'}} >
+              <img className="card-img-top p-2" src={journal} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">Journal</h5>
                 <p className="card-text">
@@ -83,8 +83,8 @@ class Dashboard extends Component {
                 </NavLink>
               </div>
             </div>
-            <div className="card col-sm-6">
-              <img className="card-img-top" src={bottles} alt="Card image cap" />
+            <div className="card" style={{width : '18rem'}}>
+              <img className="card-img-top p-2" src={bottles} alt="Card image cap" />
               <div className="card-body">
                 <h5 className="card-title">Mailbox</h5>
                 <p className="card-text">
