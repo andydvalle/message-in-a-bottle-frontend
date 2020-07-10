@@ -4,6 +4,7 @@ import { Route, Switch, NavLink } from "react-router-dom";
 import Mailbox from "./Mailbox";
 import Journal from "./Journal.js";
 import { api } from "../services/api";
+import logo from "../message-in-a-bottle-logo.png";
 
 //container that holds inbox and journal
 
@@ -14,29 +15,28 @@ class Dashboard extends Component {
 
   componentDidMount() {
     api.journals.fetchJournals().then((data) => {
-        const userJournals = data.filter(journal => {
-            return journal.user_id == this.props.currentUser.id
-        })
-        userJournals.sort(this.sortJournals)
-        this.setState({
-          journals: userJournals,
-        })
-    }
-    );
+      const userJournals = data.filter((journal) => {
+        return journal.user_id == this.props.currentUser.id;
+      });
+      userJournals.sort(this.sortJournals);
+      this.setState({
+        journals: userJournals,
+      });
+    });
   }
 
   sortJournals = (a, b) => {
-    const aId = a.id
-    const bId = b.id
+    const aId = a.id;
+    const bId = b.id;
 
     let comparison = 0;
     if (aId > bId) {
-        comparison = 1;
+      comparison = 1;
     } else if (aId < bId) {
-        comparison = -1
+      comparison = -1;
     }
-    return comparison
-  }
+    return comparison;
+  };
 
   addJournal = (data) => {
     const newJournals = [...this.state.journals, data];
@@ -56,7 +56,7 @@ class Dashboard extends Component {
 
   updateJournal = (journalEdit) => {
     const updatedJournals = this.state.journals.map((journal) =>
-      journal.id !== journalEdit.id ? journal : journalEdit 
+      journal.id !== journalEdit.id ? journal : journalEdit
     );
     this.setState({
       journals: updatedJournals,
@@ -65,23 +65,60 @@ class Dashboard extends Component {
 
   render() {
     return (
-        <div className="Dashboard">
-          Hi, {this.props.currentUser.name}
-            <NavLink to="/dashboard/mailbox">Mailbox</NavLink>
-            <NavLink to="/dashboard/journal">Journal</NavLink>
-            <Switch>
-                <Route
-                path="/dashboard/mailbox"
-                render={props => <Mailbox {...props} currentUser={this.props.currentUser}/>}
-                />
-                <Route
-                path="/dashboard/journal"
-                render={(props) => (
-                <Journal {...props} journals={this.state.journals} addJournal={this.addJournal} removeJournal={this.removeJournal} updateJournal={this.updateJournal} currentUser={this.props.currentUser}/>
-                )}
-                />
-            </Switch>
-        </div>
+      <div className="container">
+        {/* Hi from Dashboard Copy */}
+        {window.location.pathname === "/dashboard" ? (
+          <div className="row">
+            <div className="card col-sm-6">
+              <img className="card-img-top" src={logo} alt="Card image cap" />
+              <div className="card-body">
+                <h5 className="card-title">Journal</h5>
+                <p className="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <NavLink to="/dashboard/journal" className="btn btn-primary">
+                  View Journal
+                </NavLink>
+              </div>
+            </div>
+            <div className="card col-sm-6">
+              <img className="card-img-top" src={logo} alt="Card image cap" />
+              <div className="card-body">
+                <h5 className="card-title">Mailbox</h5>
+                <p className="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <NavLink to="/dashboard/mailbox" className="btn btn-primary">
+                  View Mailbox
+                </NavLink>
+              </div>
+            </div>
+          </div>
+        ) : null}
+        <Switch>
+          <Route
+            path="/dashboard/mailbox"
+            render={(props) => (
+              <Mailbox {...props} currentUser={this.props.currentUser} />
+            )}
+          />
+          <Route
+            path="/dashboard/journal"
+            render={(props) => (
+              <Journal
+                {...props}
+                journals={this.state.journals}
+                addJournal={this.addJournal}
+                removeJournal={this.removeJournal}
+                updateJournal={this.updateJournal}
+                currentUser={this.props.currentUser}
+              />
+            )}
+          />
+        </Switch>
+      </div>
     );
   }
 }
