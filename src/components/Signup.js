@@ -19,22 +19,17 @@ class Signup extends React.Component {
     this.setState({ fields: newFields });
   };
 
-    
-
-
-    handleSubmit = e => {
-        e.preventDefault()
-        api.auth.signUp(this.state.fields)
-        .then(resp => {
-            console.log(resp)
-            if (!resp.error) {
-                this.props.onLogin(resp);
-                this.props.history.push('/dashboard');
-            } else {
-                this.setState( { error: true })
-            }
-        })
-    }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    api.auth.signUp(this.state.fields).then((resp) => {
+      if (!resp.error) {
+        this.props.onLogin(resp);
+        this.props.history.push("/dashboard");
+      } else {
+        this.setState({ error: true });
+      }
+    });
+  };
 
   render() {
     const { fields } = this.state;
