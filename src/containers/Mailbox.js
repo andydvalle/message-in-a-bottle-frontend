@@ -4,10 +4,9 @@ import { api } from "../services/api";
 import MessageForm from "../components/MessageForm";
 import Inbox from "./Inbox";
 import Outbox from "./Outbox";
-import received from "../png/received-message.png"
-import sent from "../png/sent-message.png"
-import form from "../png/message-form.png"
-// import AuthHOC from '../HOCs/AuthHOC'
+import received from "../png/received-message.png";
+import sent from "../png/sent-message.png";
+import form from "../png/message-form.png";
 
 class Mailbox extends Component {
   state = {
@@ -47,15 +46,15 @@ class Mailbox extends Component {
   render() {
     return (
       <div className="container">
-        {/* Hi from Mailbox */}
         {window.location.pathname === "/dashboard/mailbox" ? (
           <div className="row">
-            <div className="card mr-5 mb-3" style={{width : '18rem'}}>
+            <div className="card mr-5 mb-3" style={{ width: "18rem" }}>
               <img className="card-img-top" src={received} alt="Card cap" />
               <div className="card-body">
                 <h5 className="card-title">Found messages</h5>
                 <p className="card-text">
-                  Bottled messages washed up at your feet! Look what others have shared.
+                  Bottled messages washed up at your feet! Look what others have
+                  shared.
                 </p>
                 <NavLink
                   to="/dashboard/mailbox/inbox"
@@ -65,7 +64,7 @@ class Mailbox extends Component {
                 </NavLink>
               </div>
             </div>
-            <div className="card mr-5 mb-3" style={{width : '18rem'}}>
+            <div className="card mr-5 mb-3" style={{ width: "18rem" }}>
               <img className="card-img-top" src={sent} alt="Card cap" />
               <div className="card-body">
                 <h5 className="card-title">Sent messages</h5>
@@ -80,13 +79,11 @@ class Mailbox extends Component {
                 </NavLink>
               </div>
             </div>
-            <div className="card" style={{width : '18rem'}}>
+            <div className="card" style={{ width: "18rem" }}>
               <img className="card-img-top" src={form} alt="Card cap" />
               <div className="card-body">
                 <h5 className="card-title">Send a message</h5>
-                <p className="card-text">
-                  Create a message in a bottle!
-                </p>
+                <p className="card-text">Create a message in a bottle!</p>
                 <NavLink
                   to="/dashboard/mailbox/message-form"
                   className="btn btn-primary"

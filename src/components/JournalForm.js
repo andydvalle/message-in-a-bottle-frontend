@@ -27,7 +27,7 @@ class JournalForm extends Component {
       api.journals
         .editJournal(this.state)
         .then((data) => this.props.updateJournal(data));
-        this.props.resetJournalState();
+      this.props.resetJournalState();
     } else {
       api.journals
         .postJournal(this.state)
@@ -57,15 +57,15 @@ class JournalForm extends Component {
 
   render() {
     return (
-      <div className="container m-3" >
+      <div className="container m-3">
         <div className="card">
           <form className="card-body" onSubmit={this.handleJournalForm}>
-          <h5 class="card-title">Begin a new journal entry</h5>
+            <h5 className="card-title">Begin a new journal entry</h5>
             <label>What's your entry title?</label>
             <input
               type="text"
               name="title"
-              class="form-control"
+              className="form-control"
               placeholder="Example: This happened today..."
               value={this.state.title}
               onChange={this.handleChange}
@@ -74,20 +74,11 @@ class JournalForm extends Component {
             <textarea
               type="text"
               name="content"
-              class="form-control"
+              className="form-control"
               placeholder="Example: I was walking around and found..."
               value={this.state.content}
               onChange={this.handleChange}
             />
-            {/* <label>user_id</label>
-            <input
-              type="text"
-              name="user_id"
-              class="form-control"
-              placeholder="this should be hidden"
-              value={this.state.user_id}
-              onChange={this.handleChange}
-            /> */}
             <button className="btn btn-primary mt-3" type="submit">
               Save Journal Entry
             </button>

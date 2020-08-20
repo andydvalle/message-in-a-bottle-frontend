@@ -2,76 +2,62 @@ import React, { Component } from "react";
 import { api } from "../services/api";
 
 class MessageForm extends Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       content: "",
-      user_count: ""
+      user_count: "",
     };
   }
 
   //sets state to current values of form inputs
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   findReceiver = () => {
-    let random = Math.floor((Math.random() * this.state.user_count) + 1) 
+    let random = Math.floor(Math.random() * this.state.user_count + 1);
     if (random === this.props.currentUser.id) {
-      return random++
+      return random++;
     }
-    return random
-  }
+    return random;
+  };
 
   setSenderAndReceiver = () => {
     this.setState({
       sender_user_id: this.props.currentUser.id,
-      receiver_user_id: this.findReceiver()
-    })
-  }
+      receiver_user_id: this.findReceiver(),
+    });
+  };
 
   //sends data to App.js to submitMessageForm(), then sets state back to ''
   handlePostMessage = (e) => {
     e.preventDefault();
-    api.messages.postMessage({
-      content: this.state.content,
-      sender_user_id: this.props.currentUser.id,
-      receiver_user_id: this.findReceiver()
-    })
-    .then((data) => this.props.addMessage(data));
+    api.messages
+      .postMessage({
+        content: this.state.content,
+        sender_user_id: this.props.currentUser.id,
+        receiver_user_id: this.findReceiver(),
+      })
+      .then((data) => this.props.addMessage(data));
     this.setState({
-      content: ""
+      content: "",
     });
   };
 
   getUserCount = () => {
-    return api.users.getAllUsers()
-    .then(users => this.setState({
-      user_count: users.length
-    }))
-  }
+    return api.users.getAllUsers().then((users) =>
+      this.setState({
+        user_count: users.length,
+      })
+    );
+  };
 
   componentDidMount() {
-    this.getUserCount()
+    this.getUserCount();
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.updateFormData !== this.state) {
-  //     this.setState({
-  //       sender_user_id: this.props.currentUser.id,
-  //       receiver_user_id: this.findReceiver()
-  //     })
-  //   }
-  // }
-
-  // componentDidUpdate(previousProps) {
-  //   if (previousProps.data !== this.props.data) {
-  //     this.setSenderAndReceiver()
-  //   }
-  // }
 
   render() {
     return (
@@ -83,12 +69,12 @@ class MessageForm extends Component {
             <textarea
               type="text"
               name="content"
-              class="form-control"
+              className="form-control"
               placeholder="Example: I've always wanted to learn how to fly..."
               value={this.state.content}
               onChange={this.handleChange}
             />
-            <small id="messageHelp" class="form-text text-muted">
+            <small id="messageHelp" className="form-text text-muted">
               Your message will be sent anonymously to another writer, just like
               you.
             </small>
@@ -96,20 +82,11 @@ class MessageForm extends Component {
             <input
               type="hidden"
               name="sender_user_id"
-              class="form-control"
+              className="form-control"
               placeholder="this should be hidden"
               defaultValue={this.props.currentUser.id}
               onChange={this.handleChange}
             />
-            {/* <label>receiver_user_id</label>
-            <input
-              type="text"
-              name="receiver_user_id"
-              class="form-control"
-              placeholder="this should be hidden"
-              value={this.state.receiver_user_id}
-              onChange={this.handleChange}
-            /> */}
             <button className="btn btn-primary mt-3" type="submit">
               Send Message
             </button>

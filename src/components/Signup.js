@@ -1,6 +1,5 @@
 import React from "react";
 import { api } from "../services/api";
-// import Jumbotron from "./Jumbotron";
 
 class Signup extends React.Component {
   constructor() {
@@ -35,17 +34,16 @@ class Signup extends React.Component {
     const { fields } = this.state;
     return (
       <div className="container mt-5">
-        {/* <Jumbotron /> */}
-        <div class="card col-sm-6">
+        <div className="card col-sm-6">
           {this.state.error ? <h1>Try Again</h1> : null}
-          <div class="card-body">
-            <h5 class="card-title">Create an account!</h5>
+          <div className="card-body">
+            <h5 className="card-title">Create an account!</h5>
             <form onSubmit={this.handleSubmit}>
-              <div class="form-group">
+              <div className="form-group">
                 <label>Username</label>
                 <input
                   name="name"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Enter username"
                   value={fields.username}
                   onChange={this.handleChange}
@@ -56,13 +54,13 @@ class Signup extends React.Component {
                 <input
                   name="password"
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Password"
                   value={fields.password}
                   onChange={this.handleChange}
                 />
               </div>
-              <button class="btn btn-primary btn mt-3" type="submit">
+              <button className="btn btn-primary btn mt-3" type="submit">
                 Sign up
               </button>
             </form>

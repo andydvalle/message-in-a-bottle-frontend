@@ -15,10 +15,15 @@ class Message extends Component {
     const { content } = this.props.messageData;
 
     return (
-      <div class="card">
-        <div class="card-body">
+      <div className="card">
+        <div className="card-body">
           <p>{content}</p>
-          <button className="btn btn-outline-danger" onClick={this.handleDeleteMessage}>Delete</button>
+          <button
+            className="btn btn-outline-danger"
+            onClick={this.handleDeleteMessage}
+          >
+            Delete
+          </button>
         </div>
       </div>
     );

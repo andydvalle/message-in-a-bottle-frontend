@@ -67,10 +67,9 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="container mt-5">
-        {/* Hi from Dashboard Copy */}
         {window.location.pathname === "/dashboard" ? (
           <div className="row">
-            <div className="card mr-5" style={{width : '18rem'}}>
+            <div className="card mr-5" style={{ width: "18rem" }}>
               <img className="card-img-top p-2" src={bottles} alt="Card cap" />
               <div className="card-body">
                 <h5 className="card-title">Messages</h5>
@@ -82,7 +81,7 @@ class Dashboard extends Component {
                 </NavLink>
               </div>
             </div>
-            <div className="card" style={{width : '18rem'}} >
+            <div className="card" style={{ width: "18rem" }}>
               <img className="card-img-top p-2" src={journal} alt="Card cap" />
               <div className="card-body">
                 <h5 className="card-title">Journal</h5>

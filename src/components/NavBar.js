@@ -4,7 +4,6 @@ import logo from "../png/message-in-a-bottle-logo.png";
 
 class NavBar extends Component {
   render() {
-    const currentUser = this.props.currentUser;
     const loggedIn = !!this.props.currentUser.id;
     return (
       <div>
@@ -79,9 +78,6 @@ class NavBar extends Component {
                 </li>
               </ul>
               <ul className="navbar-nav ml-auto">
-                {/* {loggedIn ? (
-                <a className="item">Welcome {currentUser.username}</a>
-              ) : null} */}
                 {loggedIn ? (
                   <li className="nav-item">
                     <Link to="/login" className="nav-link">
@@ -102,16 +98,6 @@ class NavBar extends Component {
                     </Link>
                   </li>
                 )}
-                {/* <li class="nav-item">
-                <Link class="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
-              <li>
-                <Link class="nav-link btn btn-primary" to="/signup">
-                  Start Here
-                </Link>
-              </li> */}
               </ul>
             </div>
           ) : null}
