@@ -1,3 +1,5 @@
+const API_ROOT = `https://message-in-a-bottle-app-api.herokuapp.com/api/v1`;
+
 //identifies the token held in the browser
 const token = () => localStorage.getItem("token");
 
@@ -12,19 +14,19 @@ const headers = () => {
 
 // GET fetch messages
 const fetchMessages = () => {
-  const URL = "http://localhost:3000/api/v1/messages";
+  const URL = `${API_ROOT}/messages`;
   return fetch(URL).then((resp) => resp.json());
 };
 
 // GET fetch journals
 const fetchJournals = () => {
-  const URL = "http://localhost:3000/api/v1/journals";
+  const URL = `${API_ROOT}/journals`;
   return fetch(URL).then((resp) => resp.json());
 };
 
 // POST fetch journal
 const postJournal = (data) => {
-  const URL = "http://localhost:3000/api/v1/journals";
+  const URL = `${API_ROOT}/journals`;
   return fetch(URL, {
     method: "POST",
     headers: {
@@ -37,7 +39,7 @@ const postJournal = (data) => {
 
 //POST fetch message
 const postMessage = (data) => {
-  const URL = "http://localhost:3000/api/v1/messages";
+  const URL = `${API_ROOT}/messages`;
   return fetch(URL, {
     method: "POST",
     headers: {
@@ -50,7 +52,7 @@ const postMessage = (data) => {
 
 //DELETE fetch message
 const deleteMessage = (messageId) => {
-  const URL = `http://localhost:3000/api/v1/messages/${messageId}`;
+  const URL = `${API_ROOT}/messages/${messageId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());
@@ -58,7 +60,7 @@ const deleteMessage = (messageId) => {
 
 //DELETE fetch journal
 const deleteJournal = (journalId) => {
-  const URL = `http://localhost:3000/api/v1/journals/${journalId}`;
+  const URL = `${API_ROOT}/journals/${journalId}`;
   return fetch(URL, {
     method: "DELETE",
   }).then((resp) => resp.json());
@@ -66,7 +68,7 @@ const deleteJournal = (journalId) => {
 
 //PUT fetch, edit journals, then GET fetch journals
 const editJournal = (data) => {
-  const URL = `http://localhost:3000/api/v1/journals/${data.id}`;
+  const URL = `${API_ROOT}/journals/${data.id}`;
   return fetch(URL, {
     method: "PATCH",
     headers: {
@@ -82,7 +84,7 @@ const editJournal = (data) => {
 };
 
 const signUp = (data) => {
-  return fetch("http://localhost:3000/api/v1/users", {
+  return fetch(`${API_ROOT}/users`, {
     method: "POST",
     headers: headers(),
     body: JSON.stringify(data),
@@ -90,7 +92,7 @@ const signUp = (data) => {
 };
 
 const login = (data) => {
-  return fetch("http://localhost:3000/api/v1/auth", {
+  return fetch(`${API_ROOT}/auth`, {
     method: "POST",
     headers: headers(),
     body: JSON.stringify(data),
@@ -98,7 +100,7 @@ const login = (data) => {
 };
 
 const getCurrentUser = () => {
-  const URL = "http://localhost:3000/api/v1/current_user";
+  const URL = `${API_ROOT}/current_user`;
   return fetch(URL, {
     headers: headers(),
   }).then((resp) => {
@@ -107,7 +109,7 @@ const getCurrentUser = () => {
 };
 
 const getAllUsers = () => {
-  const URL = "http://localhost:3000/api/v1/users";
+  const URL = `${API_ROOT}/users`;
   return fetch(URL).then((resp) => resp.json());
 };
 

@@ -8,7 +8,7 @@ class NavBar extends Component {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light navbar-custom">
-          <Link className="navbar-brand" to="/login">
+          <Link className="navbar-brand" to="/">
             <img src={logo} alt="message in a bottle logo" />
           </Link>
           <button
@@ -80,7 +80,7 @@ class NavBar extends Component {
               <ul className="navbar-nav ml-auto">
                 {loggedIn ? (
                   <li className="nav-item">
-                    <Link to="/login" className="nav-link">
+                    <Link to="/" className="nav-link">
                       <div
                         onClick={() => {
                           this.props.handleLogout();
@@ -93,7 +93,7 @@ class NavBar extends Component {
                   </li>
                 ) : (
                   <li className="nav-item">
-                    <Link to="/login" className="nav-item">
+                    <Link to="/" className="nav-item">
                       <div className="nav-link">Sign In</div>
                     </Link>
                   </li>
